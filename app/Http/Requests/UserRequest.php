@@ -27,6 +27,7 @@ class UserRequest extends FormRequest
             'nome' => 'required',
             'email' => 'required',
             'senha' => 'required',
+            'funcao' => 'required'
             
         ];
     }
@@ -36,7 +37,8 @@ class UserRequest extends FormRequest
         return [
             'nome.required' => 'Nome é obrigatório',
             'email.required' => 'Email é obrigatório',
-            'senha.required' => 'Senha é obrigatório',
+            'senha.required' => 'Senha é obrigatória',
+            'funcao.required' => 'A função é obrigatória',
             
         ];
     }

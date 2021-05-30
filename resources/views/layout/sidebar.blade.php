@@ -32,8 +32,8 @@
                           </div>
                           <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Layout</div>
                           <ul class="pcoded-item pcoded-left-item">
-                              <li class="active">
-                                  <a href="index.html" class="waves-effect waves-dark">
+                              <li class=" ">
+                                  <a href="/" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                       <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                       <span class="pcoded-mcaret"></span>
@@ -141,7 +141,7 @@
         
                           <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Registros</div>
                           <ul class="pcoded-item pcoded-left-item">
-                              <li>
+                              <li class=" ">
                                   <a href="/usuarios" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="fa fa-users"></i><b>FC</b></span>
                                       <span class="pcoded-mtext" data-i18n="nav.form-components.main">Usuários</span>

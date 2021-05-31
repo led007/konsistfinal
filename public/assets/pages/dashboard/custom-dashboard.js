@@ -629,12 +629,12 @@ $(document).ready(function() {
             "value": 81
         } ]
     } );
-    var ctx = document.getElementById('this-month').getContext("2d");
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: avgvalchart('#11c15b', [30, 15, 25, 35, 30, 20, 25, 30, 15, 1], '#11c15b'),
-        options: buildchartoption(),
-    });
+    //var ctx = document.getElementById('this-month').getContext("2d");
+    // var myChart = new Chart(ctx, {
+    //     type: 'bar',
+    //     data: avgvalchart('#11c15b', [30, 15, 25, 35, 30, 20, 25, 30, 15, 1], '#11c15b'),
+    //     options: buildchartoption(),
+    // });
     function avgvalchart(a, b, f) {
         if (f == null) {
             f = "rgba(0,0,0,0)";

@@ -89,7 +89,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group form-default">
-                                                    <input type="password" name="senha" class="form-control" required value="@if(isset($usuario)){{$usuario->senha}}@else{{old('senha')}}@endif">
+                                                    <input type="password" name="senha" class="form-control"  value="">
                                                     <span class="form-bar"></span>
                                                     <label class="float-label">Senha</label>
                                                 </div>
@@ -105,6 +105,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+                                            
                                                 <div class="col">
                                                     <label class="col-sm-5 col-form-label" for="foto">Carregar Foto:</label>
                                                     <div style="margin: 15px;">

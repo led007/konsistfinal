@@ -91,7 +91,7 @@
                                                 <div class="form-group form-default">
                                                     <input type="password" name="senha" class="form-control" required value="@if(isset($usuario)){{$usuario->senha}}@else{{old('senha')}}@endif">
                                                     <span class="form-bar"></span>
-                                                    <label class="float-label">Password</label>
+                                                    <label class="float-label">Senha</label>
                                                 </div>
                                             </div>
                                             <div class="col-6">

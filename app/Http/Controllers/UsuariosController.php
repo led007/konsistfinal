@@ -14,20 +14,20 @@ class UsuariosController extends Controller
     public $tipo_funcao = ['Admin', 'Membro', 'Usuário'];
 
     public function index(Request $request)
-    {
+    {   
         $pesquisa = $request->pesquisa;
         if ($pesquisa != '') {
             $usuarios = User::where('nome', 'like', "%" . $pesquisa . "%")->paginate(7);
         } else {
             $usuarios = User::paginate(7);
         }
+       
         return view('usuarios.index', compact('usuarios', 'pesquisa'));
     }
 
     public function novo()
     {
         $tipo_funcao = $this->tipo_funcao;
-
         return view('usuarios.form', compact('tipo_funcao'));
     }
     public function salvar(UserRequest $request)
@@ -52,14 +52,14 @@ class UsuariosController extends Controller
             $usuario = User::create($request->all());
         }
         
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [    
         ]);
         if ($validator->fails()) {
-            return back()->with('errors', $validator->messages()->all()[0])->withInput();
-        };
+            return back()->with('errors', $validator->message()->all()[0])->withInput();
+        }
         Alert::toast('Salvo com sucesso!', 'success');
 
-        return redirect('/usuarios/editar' . $usuario->id);
+        return redirect('/usuarios/editar/' . $usuario->id);
     }
 
     public function editar($id)

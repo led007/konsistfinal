@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <title>Konsist</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +37,6 @@
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-      <link href="/assets/css/sweetalert/dist/sweetalert2.min.css" rel="stylesheet" media="all">
   </head>
 
   <body>

@@ -124,7 +124,7 @@
                                                 <td align="center">{{ $item->funcao}}</td>
                                                 <td align="center">{{ $item->email }}</td>
                                                 <td align="end">
-                                                    <a href="/usuarios/editar{{ $item->id }}" class="btn btn-info">
+                                                    <a href="/usuarios/editar/{{ $item->id }}" class="btn btn-info">
                                                         <i class="ti-write"></i>
                                                     </a>
                                                     <button data-target="#modal{{ $item->id }}" data-toggle="modal" class="btn btn-inverse">

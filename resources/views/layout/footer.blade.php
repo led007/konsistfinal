@@ -28,8 +28,8 @@
     <!-- custom js -->
     <script type="text/javascript" src="/assets/pages/dashboard/custom-dashboard.js"></script>
     <script type="text/javascript" src="/assets/js/script.js "></script>
-    <script src="/assets/css/sweetalert/dist/sweetalert2.all.min.js"></script>
-    @include('sweetalert::alert')
+    
+    
 <script>
 //deletar 
     
@@ -67,7 +67,9 @@ function deleta(url) {
   } 
 
 </script>
-
+<script src="{{ asset('/vendor/sweetalert/sweetalert.all.js') }}"
+@include('sweetalert::alert')> 
+</script>
 
 
     

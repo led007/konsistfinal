@@ -17,7 +17,9 @@ class UsuariosController extends Controller
     {   
         $pesquisa = $request->pesquisa;
         if ($pesquisa != '') {
-            $usuarios = User::where('nome', 'like', "%" . $pesquisa . "%")->paginate(7);
+            $usuarios = User::where('nome', 'like', "%" . $pesquisa . "%")
+                            ->orWhere('funcao','like', "%".$pesquisa."%")
+            ->paginate(7);
         } else {
             $usuarios = User::paginate(7);
         }

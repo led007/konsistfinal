@@ -124,7 +124,7 @@
                 <ul class="pcoded-item pcoded-left-item">
                     <li>
                         <a href="form-elements-component.html" class="waves-effect waves-dark">
-                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                            <span class="pcoded-micon"><i class="fas fa-user-md"></i><b>FC</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
@@ -145,6 +145,13 @@
                         <a href="/usuarios" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="fa fa-users"></i><b>FC</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Usuários</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/pacientes" class="waves-effect waves-dark">
+                            <span class="pcoded-micon"><i class="fas fa-user"></i><b>FC</b></span>
+                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Pacientes</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>

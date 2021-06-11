@@ -142,19 +142,19 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label class="form-label">Endereço</label>
-                                                                    <input type="text" name="endereco" class="form-control" required value="@if(isset($paciente)){{$paciente->endereco}}@else{{old('endereco')}}@endif">
+                                                                    <input id="rua" type="text" name="endereco" class="form-control" required value="@if(isset($paciente)){{$paciente->endereco}}@else{{old('endereco')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
                                                                 <div class="form-group floating-label">
                                                                     <label class="">Cidade</label>
-                                                                    <input type="text" name="cidade" class="form-control floating-input" value="@if(isset($paciente)){{$paciente->cidade}}@else{{old('cidade')}}@endif">
+                                                                    <input  id="cidade" type="text" name="cidade" class="form-control floating-input" value="@if(isset($paciente)){{$paciente->cidade}}@else{{old('cidade')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">Bairro</label>
-                                                                    <input type="text" name="bairro" class="form-control" value="@if(isset($paciente)){{$paciente->bairro}}@else{{old('bairro')}}@endif">
+                                                                    <input id="bairro" type="text" name="bairro" class="form-control" value="@if(isset($paciente)){{$paciente->bairro}}@else{{old('bairro')}}@endif">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -174,13 +174,13 @@
                                                             <div class="col-2">
                                                                 <div class="form-group">
                                                                     <label class="form-label">UF</label>
-                                                                    <input type="text" name="uf" class="form-control" value="@if(isset($paciente)){{$paciente->uf}}@else{{old('uf')}}@endif">
+                                                                    <input id="uf"  type="text" name="uf" class="form-control" value="@if(isset($paciente)){{$paciente->uf}}@else{{old('uf')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">CEP</label>
-                                                                    <input type="text" name="cep" class="form-control" required value="@if(isset($paciente)){{$paciente->cep}}@else{{old('cep')}}@endif">
+                                                                    <input id="cep" type="text" name="cep" class="form-control"required value="@if(isset($paciente)){{$paciente->cep}}@else{{old('cep')}}@endif" onKeyPress="MascaraGenerica(this, 'CEP');" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -188,7 +188,7 @@
                                                             <div class="col-4">
                                                                 <div class="form-group">
                                                                     <label class="form-label">Telefone</label>
-                                                                    <input type="text" name="telefone" class="form-control" required value="@if(isset($paciente)){{$paciente->telefone}}@else{{old('telefone')}}@endif">
+                                                                    <input type="text" name="telefone" class="form-control" required value="@if(isset($paciente)){{$paciente->telefone}}@else{{old('telefone')}}@endif" onKeyPress="MascaraGenerica(this, 'TELEFONE');">
                                                                 </div>
                                                             </div>
                                                             <div class="col-8">
@@ -212,7 +212,7 @@
                                                             <div class="col-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">RG</label>
-                                                                    <input type="text" name="rg" class="form-control" value="@if(isset($paciente)){{$paciente->rg}}@else{{old('rg')}}@endif">
+                                                                    <input type="text" name="rg" class="form-control" value="@if(isset($paciente)){{$paciente->rg}}@else{{old('rg')}}@endif" onKeyPress="MascaraGenerica(this, 'RG');">
                                                                 </div>
                                                             </div>
                                                             <div class="col-2">
@@ -224,7 +224,7 @@
                                                             <div class="col-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">CPF</label>
-                                                                    <input type="text" name="cpf" class="form-control" value="@if(isset($paciente)){{$paciente->cpf}}@else{{old('cpf')}}@endif">
+                                                                    <input type="text" name="cpf" class="form-control" value="@if(isset($paciente)){{$paciente->cpf}}@else{{old('cpf')}}@endif" onKeyPress="MascaraGenerica(this, 'CPF');">
                                                                 </div>
                                                             </div>
                                                             <div class="col-4" style="margin-top: 26px;">
@@ -287,6 +287,73 @@
 </div>
 </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+<script>
 
+        $(document).ready(function() {
 
+            function limpa_formulário_cep() {
+                // Limpa valores do formulário de cep.
+                $("#rua").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#uf").val("");
+                
+            }
+            
+            //Quando o campo cep perde o foco.
+            $("#cep").blur(function() {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#rua").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+                        $("#uf").val("...");
+                        $
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#rua").val(dados.logradouro);
+                                $("#bairro").val(dados.bairro);
+                                $("#cidade").val(dados.localidade);
+                                $("#uf").val(dados.uf);
+                                
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+        });
+
+    </script>
 @include('layout.footer')

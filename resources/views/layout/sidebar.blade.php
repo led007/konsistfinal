@@ -156,9 +156,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="map-google.html" class="waves-effect waves-dark">
-                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
+                        <a href="/medicos" class="waves-effect waves-dark">
+                            <span class="pcoded-micon"><i class="fas fa-user-md"></i><b>FC</b></span>
+                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Médicos</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>

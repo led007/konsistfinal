@@ -19,7 +19,7 @@ class CreatePacientesTable extends Migration
             $table->string('data_nasc');
             $table->string('idade');
             $table->enum('sexo', ['Masculino', 'Feminino']);
-            $table->string('medico')->nullable();
+            $table->bigInteger('medico_id');
             $table->enum('situacao', ['Em tratamento', 'Sem tratamento','Hormonioterapia','Falecido']);
             $table->string('cep', 9)->nullable();
             $table->string('endereco', 150)->nullable();

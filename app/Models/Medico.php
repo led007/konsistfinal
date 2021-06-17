@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Paciente extends Model
+class Medico extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'nome',
+        'tipo_p',
+        'status',
+        'n_conselho',
+        'conselho',
+        'uf_conselho',
         'data_nasc',
-        'idade',
-        'sexo',
-        'medico_id',
-        'situacao',
-        'cep',
         'endereco',
         'bairro',
         'numero',
@@ -24,19 +24,14 @@ class Paciente extends Model
         'cidade',
         'uf',
         'email',
-        'telefone',
-        'nome_social',
+        'sexo',
         'rg',
         'emissor',
+        'titulo',
         'cpf',
-        'civil',
-        'nome_mae',
-        'nome_pai',
-        'nome_rep'
-    ];
-    
-    public function medico()
-    {
-        return $this->hasOne(Medico::class, 'id', 'medico_id');
-    }
+        'telefone',
+        'cep'
+
+        
+    ]; 
 }

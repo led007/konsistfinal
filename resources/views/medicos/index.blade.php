@@ -9,7 +9,7 @@
                 <div class="col-md-8">
                     <div class="page-header-title">
                         <h5 class="m-b-10">Konsist</h5>
-                        <p class="m-b-0">Gerenciamento de Pacientes</p>
+                        <p class="m-b-0">Gerenciamento de Médicos</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item">
                             <a href="/"> <i class="fa fa-home"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="/pacientes">Pacientes</a>
+                        <li class="breadcrumb-item"><a href="/medicos">Médicos</a>
                         </li>
                     </ul>
                 </div>
@@ -60,14 +60,14 @@
                             <div class="card">
                                 <h2 class="title-3 m-b-30" align="home">
                                     <br>
-                                    <i class="fas fa-user" style="margin: 10px;"></i>Pacientes
+                                    <i class="fas fa-user" style="margin: 10px;"></i>Médicos
                                     <div class="card-tools">
                                     </div>
                                 </h2>
                                 <div class="row">
                                     <div class="col" style="margin: 10px;">
-                                        <a href="/pacientes/novo" class="btn btn-primary">
-                                            Novo Paciente
+                                        <a href="/medicos/novo" class="btn btn-primary">
+                                            Novo Médico
                                             <i class="ti-plus"></i>
                                         </a>
                                     </div>
@@ -90,26 +90,26 @@
                                             <thead>
                                                 <tr>
                                                     <td align="center">#</td>
-                                                    <td align="center">Paciente</td>
                                                     <td align="center">Médico</td>
-                                                    <td align="center">Situação</td>
+                                                    <td align="center">Status</td>
+                                                    <td align="center">Especialidade</td>
                                                     <td align="center">Ações</td>
                                                 </tr>
                                             </thead>
-                                            @foreach ($pacientes as $item)
+                                            @foreach ($medicos as $item)
                                             <tbody>
                                                 <td align="center">{{ $item->id }}</td>
                                                 <td align="center">{{ $item->nome }}</td>
-                                                <td align="center">{{$item->medico->nome}}</td>
-                                                <td align="center">{{ $item->situacao }}</td>
+                                                <td align="center">{{ $item->status }}</td>
+                                                <td align="center">Enfermeiro</td>
                                                 <td align="end">
-                                                    <a href="/pacientes/editar/{{ $item->id }}" class="btn btn-info">
+                                                    <a href="/medicos/editar/{{ $item->id }}" class="btn btn-info">
                                                         <i class="ti-write"></i>
                                                     </a>
                                                     <button data-target="#" data-toggle="modal" class="btn btn-inverse">
                                                         <i class="ti-eye"></i>
                                                     </button>
-                                                    <a href="#" class="btn btn-danger" onclick="deleta('/pacientes/deletar/{{ $item->id }}')">
+                                                    <a href="#" class="btn btn-danger" onclick="deleta('/medicos/deletar/{{ $item->id }}')">
                                                         <i class="ti-trash"></i>
                                                     </a>
 
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            {{ $pacientes->links() }}
+                                            {{ $medicos->links() }}
                                             <br>
                                         </div>
                                     </div>

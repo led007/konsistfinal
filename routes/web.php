@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\PacientesController;
+use App\Http\Controllers\MedicosController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -19,3 +20,9 @@ Route::get('/pacientes/novo', [PacientesController::class, 'novo'])->name('pacie
 Route::post('/pacientes/salvar', [PacientesController::class, 'salvar'])->name('pacientes.salvar');
 Route::get('/pacientes/editar/{id}', [PacientesController::class, 'editar'])->name('pacientes.editar');
 Route::get('/pacientes/deletar/{id}', [PacientesController::class, 'deletar'])->name('pacientes.deletar');
+
+Route::get('/medicos', [MedicosController::class, 'index'])->name('medicos');
+Route::get('/medicos/novo', [MedicosController::class, 'novo'])->name('medicos.novo');
+Route::post('/medicos/salvar', [MedicosController::class, 'salvar'])->name('medicos.salvar');
+Route::get('/medicos/editar/{id}', [MedicosController::class, 'editar'])->name('medicos.editar');
+Route::get('/medicos/deletar/{id}', [MedicosController::class, 'deletar'])->name('medicos.deletar');

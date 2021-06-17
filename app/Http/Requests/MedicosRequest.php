@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PacientesRequest extends FormRequest
+class MedicosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,14 +26,13 @@ class PacientesRequest extends FormRequest
         return [
             'nome' => 'required',
             'data_nasc' => 'required',
-            'idade' => 'required',
             'sexo' => 'required',
-            'medico_id' => 'required',
-            'situacao' => 'required',
-            'endereco' => 'required',
-            'email' => 'required',
+            'status' => 'required',
+            'n_conselho' => 'required',
+            'conselho' => 'required',
+            'uf_conselho' => 'required',
             'cep' => 'required',
-            'telefone' => 'required'
+            
             
         ];  
     }
@@ -43,14 +42,13 @@ class PacientesRequest extends FormRequest
         return [
             'nome.required' => 'Nome é obrigatório',
             'data_nasc.required' => 'Selecione uma data de nascimento',
-            'idade.required' => 'A Idade é obrigatória',
             'sexo.required' => 'Selecione o campo sexo',
-            'medico_id.required' => 'O médico é obrigatório',
-            'situacao.required' => 'Escolha uma situação',
-            'endereco.required' => 'Endereço é obrigatório',
-            'email.required' => 'Email é obrigatório',
-            'cep.required' => 'O CEP é obrigatório',
-            'telefone.required' => 'O telefone é obrigatório',
+            'status.required' => 'Escolha um status',
+            'n_conselho.required' => 'Número do conselho é obrigatório',
+            'conselho.required' => 'O conselho é obrigatório',
+            'uf_conselho.required' => 'UF do conselho obrigatório',
+            'cep.required' => 'CEP é obrigatório',
+           
             
             
         ];

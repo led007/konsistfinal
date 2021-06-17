@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 use App\Http\Requests\PacientesRequest;
+use App\Models\Medico;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -15,24 +16,30 @@ class PacientesController extends Controller
     public $civil = ['Solteiro(a)', 'Casado(a)','Divorciado(a)','Viúvo(a)','União estável'];
    
     public function index(Request $request)
-    {   
+    {   $medico_id = Medico::select('nome', 'id')->get();
         $pesquisa = $request->pesquisa;
         if ($pesquisa != '') {
-            $pacientes = Paciente::where('nome', 'like', "%" . $pesquisa . "%")
-                            ->orWhere('funcao','like', "%".$pesquisa."%")
-            ->paginate(7);
+            $pacientes = Paciente::with('medico')
+            ->where('nome','like', "%".$pesquisa."%")
+            ->orWhere('situacao','like', "%".$pesquisa."%")
+            ->orWhereHas('medico', function($query) use ($pesquisa){
+                $query->where('nome','like', "%".$pesquisa."%");
+            })
+            ->paginate(10);
         } else {
-            $pacientes = Paciente::paginate(7);
+            $pacientes = Paciente::with('medico')->paginate(10);
         }
        
-        return view('pacientes.index', compact('pacientes', 'pesquisa'));
+        return view('pacientes.index', compact('pacientes', 'pesquisa','medico_id'));
     }
 
     public function novo()
-    {   $civil = $this->civil;
+    {   
+        $medico_id = Medico::select('nome', 'id')->get();
+        $civil = $this->civil;
         $tipo_sexo = $this->tipo_sexo;
         $situacao = $this->situacao;
-        return view('pacientes.form', compact('tipo_sexo','situacao','civil'));
+        return view('pacientes.form', compact('tipo_sexo','situacao','civil','medico_id'));
     }
     public function salvar(PacientesRequest $request)
     {
@@ -54,12 +61,14 @@ class PacientesController extends Controller
     }
 
     public function editar($id)
-    {$civil = $this->civil;
+    {   
+        $medico_id = Medico::select('nome', 'id')->get();
+        $civil = $this->civil;
         $tipo_sexo = $this->tipo_sexo;
         $situacao = $this->situacao;
         $paciente = Paciente::find($id);
 
-        return view('pacientes.form', compact('paciente','tipo_sexo','situacao','civil'));
+        return view('pacientes.form', compact('paciente','tipo_sexo','situacao','civil','medico_id'));
     }
 
     public function deletar($id)

@@ -67,35 +67,33 @@
                                     <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
                                 </div>
                                 <div class="card-block">
-                                    <form action="/usuarios/salvar" method="POST" class="form-material" enctype="multipart/form-data">
+                                    <form action="/usuarios/salvar" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="id" value="@isset($usuario){{$usuario->id}}@endisset">
                                         <div class="row">
                                             <div class="col-6">
-                                                <div class="form-group form-default">
-                                                    <input type="text" name="nome" class="form-control" required value="@if(isset($usuario)){{$usuario->nome}}@else{{old('nome')}}@endif">
-                                                    <span class="form-bar"></span>
+                                                <div class="form-group">
                                                     <label class="float-label">Nome</label>
+                                                    <input type="text" name="nome" class="form-control" required value="@if(isset($usuario)){{$usuario->nome}}@else{{old('nome')}}@endif">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group form-default">
-                                                    <input type="email" name="email" class="form-control" required value="@if(isset($usuario)){{$usuario->email}}@else{{old('email')}}@endif">
-                                                    <span class="form-bar"></span>
                                                     <label class="float-label">Email</label>
+                                                    <input type="email" name="email" class="form-control" required value="@if(isset($usuario)){{$usuario->email}}@else{{old('email')}}@endif">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group form-default">
-                                                    <input type="password" name="senha" class="form-control"  value="">
-                                                    <span class="form-bar"></span>
                                                     <label class="float-label">Senha</label>
+                                                    <input type="password" name="senha" class="form-control"  value="">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group form-default">
+                                                <label class="float-label">Função</label>
                                                     <select name="funcao" id="funcao" class="form-control" value="@if(isset($usuario)){{$usuario->funcao}}@else{{old('funcao')}}@endif">
                                                         <option value="">Selecione uma Função</option>
                                                         @foreach ($tipo_funcao as $key => $tipo)

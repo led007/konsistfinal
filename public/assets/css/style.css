@@ -9253,6 +9253,7 @@ body.menu-bottom #collapse-menu {
 .form-control {
   font-size: 14px;
   border-radius: 2px;
+  height: 35px;
   border: 1px solid #cccccc; }
   .form-control:focus {
     border: 1px solid #448aff; }

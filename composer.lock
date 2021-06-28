@@ -4,8 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ab9e23634fd899d6e25fecb5c520c9b",
+    "content-hash": "f266a1cf7f39f5a44245ebfb9e59415e",
     "packages": [
+        {
+            "name": "acaronlex/laravel-calendar",
+            "version": "1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/acaronlex/laravel-calendar.git",
+                "reference": "b12cfb7ad1104dd02d3cd2ecc3f391c188e487cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/acaronlex/laravel-calendar/zipball/b12cfb7ad1104dd02d3cd2ecc3f391c188e487cb",
+                "reference": "b12cfb7ad1104dd02d3cd2ecc3f391c188e487cb",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~7.0|~8.0",
+                "php": ">=7.2.5"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Acaronlex\\LaravelCalendar\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Calendar": "Acaronlex\\LaravelCalendar\\Facades\\Calendar"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Acaronlex\\LaravelCalendar\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "acaronlex",
+                    "email": "acaronlex@outlook.com"
+                }
+            ],
+            "description": "Laravel helper for FullCalendar.io",
+            "support": {
+                "issues": "https://github.com/acaronlex/laravel-calendar/issues",
+                "source": "https://github.com/acaronlex/laravel-calendar/tree/1.3"
+            },
+            "time": "2021-01-18T21:34:10+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",

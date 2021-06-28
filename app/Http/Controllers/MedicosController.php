@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MedicosRequest;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use App\Models\Espec;
 
 class MedicosController extends Controller
 {   
@@ -43,12 +43,14 @@ class MedicosController extends Controller
     }
 
     public function novo()
-    {   $titulo = $this->titulo;
+    {   
+        $espec = Espec::select('nome', 'id')->get();
+        $titulo = $this->titulo;
         $tipo_sexo = $this->tipo_sexo;
         $conselho = $this->conselho;
         $tipo_p = $this->tipo_p;
         $status = $this->status;
-        return view('medicos.form',compact('tipo_p','status','conselho','tipo_sexo','titulo'));
+        return view('medicos.form',compact('tipo_p','status','conselho','tipo_sexo','titulo','espec'));
     }
     public function salvar(MedicosRequest $request)
     {
@@ -70,14 +72,16 @@ class MedicosController extends Controller
     }
 
     public function editar($id)
-    {   $titulo = $this->titulo;
+    {   
+        $espec = Espec::select('nome', 'id')->get();
+        $titulo = $this->titulo;
         $tipo_sexo = $this->tipo_sexo;
         $conselho = $this->conselho;
         $tipo_p = $this->tipo_p;
         $status = $this->status;
         $medico = Medico::find($id);
 
-        return view('medicos.form', compact('medico','tipo_p','status','conselho','tipo_sexo','titulo'));
+        return view('medicos.form', compact('medico','tipo_p','status','conselho','tipo_sexo','titulo','espec'));
     }
 
     public function deletar($id)

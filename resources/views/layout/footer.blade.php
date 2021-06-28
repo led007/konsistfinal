@@ -26,6 +26,7 @@
     <!-- custom js -->
     <script type="text/javascript" src="/assets/pages/dashboard/custom-dashboard.js"></script>
     <script type="text/javascript" src="/assets/js/script.js "></script>
+    <script type="text/javascript" src="/assets/css/fullcalendar/main.js"></script>
     
     
 <script>
@@ -155,7 +156,7 @@ function MascaraGenerica(seletor, tipoMascara) {
         } else if (tipoMascara == 'CEP') {
             formataCampo(seletor, '00.000-000');
         } else if (tipoMascara == 'TELEFONE') {
-            formataCampo(seletor, '(00) 00000-0000');
+            formataCampo(seletor, '(00) 0-0000-0000');
         } else if (tipoMascara == 'INTEIRO') {
             MascaraInteiro(seletor);
         } else if (tipoMascara == 'FLOAT') {

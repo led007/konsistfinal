@@ -48,7 +48,7 @@ class CreateMedicosTable extends Migration
             $table->string('emissor')->nullable();
             $table->enum('titulo', ['Dr.','Dr.(a)','Sr.','Sr.(a)']);
             $table->string('cpf')->nullable();
-            $table->string('telefone', 15)->nullable();
+            $table->string('telefone')->nullable();
             $table->timestamps();
         });
     }

@@ -26,43 +26,6 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <form action="/espec/salvar" method="POST">
-        @csrf
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myLargeModalLabel">Nova Especialidade</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                        <input type="hidden" name="id" value="">
-
-                            <div class="col-5">
-                                <div class="form-group">
-                                <label class="form-label">Nome da especialidade</label>
-                                <input type="text" name="nome" class="form-control" required value="">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
     <div class="pcoded-inner-content">
         <!-- Main-body start -->
         <div class="main-body">
@@ -113,7 +76,7 @@
                                             <div class="col-2">
                                                 <div class="form-group">
                                                     <label class="form-label">Titulo</label>
-                                                    <select name="titulo" class="form-control" value="@if(isset($medico)){{$medico->titulo}}@else{{old('titulo')}}@endif">
+                                                    <select  name="titulo" class="form-control" value="@if(isset($medico)){{$medico->titulo}}@else{{old('titulo')}}@endif">
                                                         <option value="">Selecione</option>
                                                         @foreach ($titulo as $key => $tipo)
                                                         <option value="{{$tipo}}" @if(isset($medico) && $medico->titulo == $tipo) selected @elseif(old('titulo') == $tipo) selected @endif>{{$tipo}}</option>
@@ -147,7 +110,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-2">
-                                                <div class="form-group">
+                                            <div class="form-group">
                                                     <label class="form-label">UF Conselho</label>
                                                     <input type="text" name="uf_conselho" class="form-control" required value="@if(isset($medico)){{$medico->uf_conselho}}@else{{old('uf_conselho')}}@endif">
                                                 </div>
@@ -281,58 +244,23 @@
                                                         <div class="row">
                                                             <div class="col">
 
-                                                                <div class="container">
-                                                                    <div align='end'>
-                                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Nova especialidade</button>
-                                                                    </div>
-                                                                    <br>
-                                                                    <div class="col-lg-12">
-                                                                        <table class="table table-hover ">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <td align="center">#</td>
-                                                                                    <td align="center">Especialidade</td>
-                                                                                    <td align="center">Padrão</td>
-                                                                                    <td align="center">Ações</td>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            @foreach ($espec as $item)
-                                                                            <tbody>
-                                                                                <td align="center">{{ $item->id }}</td>
-                                                                                <td align="center">{{ $item->nome }}</td>
-                                                                                <td align="center">3</td>
-                                                                                <td align="center">4</td>
-                                                                                <td align="end">
-                                                                                    <a href="/espec/editar/{{ $item->id }}" class="btn btn-info">
-                                                                                        <i class="ti-write"></i>
-                                                                                    </a>
-
-                                                                                    <a href="#" class="btn btn-danger" onclick="deleta('/espec/deletar/{{ $item->id }}')">
-                                                                                        <i class="ti-trash"></i>
-                                                                                    </a>
-
-                                                                                </td>
-                                                                            </tbody>
-                                                                            @endforeach
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col" align="end">
-                                                            <br>
-                                                            <button type="submit" class="btn btn-success w-25 hover-shadow">
-                                                                Salvar
-                                                                <i class="ti-save" style="margin: 5px;"></i>
-                                                            </button>
-                                                        </div>
 
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col" align="end">
+                                                        <br>
+                                                        <button type="submit" class="btn btn-success w-25 hover-shadow">
+                                                            Salvar
+                                                            <i class="ti-save" style="margin: 5px;"></i>
+                                                        </button>
                                                     </div>
+
                                                 </div>
                                             </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -399,7 +327,7 @@
                             Swal.fire({
                                 icon: 'info',
                                 text: 'Formato de CEP inválido',
-
+                                
                             });
                         }
                     });
@@ -408,10 +336,10 @@
                     //cep é inválido.
                     limpa_formulário_cep();
                     Swal.fire({
-                        icon: 'info',
-                        text: 'Formato de CEP inválido',
-
-                    });
+                                icon: 'info',
+                                text: 'Formato de CEP inválido',
+                                
+                            });
                 }
             } //end if.
             else {

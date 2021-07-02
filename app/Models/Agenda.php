@@ -14,12 +14,16 @@ class Agenda extends Model
         'paciente_id',
         'medico_id',
         'tipo_a',
-        'horario',
-        'horario_f'
+        'data'
     ]; 
 
     public function medico()
     {
         return $this->hasOne(Medico::class, 'id', 'medico_id');
+    }
+
+    public function pacientes()
+    {
+        return $this->hasOne(Paciente::class, 'id', 'paciente_id');
     }
 }

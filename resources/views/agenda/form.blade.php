@@ -9,7 +9,7 @@
                 <div class="col-md-8">
                     <div class="page-header-title">
                         <h5 class="m-b-10">Konsist</h5>
-                        <p class="m-b-0">Gerenciamento de Médicos</p>
+                        <p class="m-b-0">Agenda</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -17,9 +17,9 @@
                         <li class="breadcrumb-item">
                             <a href="/"> <i class="fa fa-home"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="/medico">Médicos</a>
+                        <li class="breadcrumb-item"><a href="/agenda">Agendamento</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">{{ isset($medico) ? 'Editar' : 'Novo' }} Médico</a>
+                        <li class="breadcrumb-item"><a href="#">{{ isset($agenda) ? 'Editar' : 'Novo' }} Agendamento</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +35,7 @@
                     <div class="row">
                         <!-- task, page, download counter  start -->
                         <div class="container">
-                            <a href="/medicos" class="btn btn-secondary">
+                            <a href="/agenda" class="btn btn-secondary">
                                 Voltar
                                 <i class="ti-arrow-left"></i>
                             </a>
@@ -43,11 +43,11 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="row">
-                                        <h2><i class="fa fa-user" style="margin: 10px;"></i> {{ isset($medico) ? 'Editar' : 'Novo' }} Médico</h2>
+                                        <h2><i class="far fa-calendar-alt" style="margin: 10px;"></i> {{ isset($agenda) ? 'Editar' : 'Novo' }} Agendamento</h2>
                                         <div class="col" align="end">
-                                            @isset($medico->id)
-                                            <a href="/medicos/novo" class="btn btn-primary">
-                                                Novo Médico
+                                            @isset($agenda->id)
+                                            <a href="/agenda/novo" class="btn btn-primary">
+                                                Novo agendamento
                                                 <i class="ti-plus"></i>
                                             </a>
                                             @endisset
@@ -57,77 +57,64 @@
                                     <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
                                 </div>
                                 <div class="card-block">
-                                    <form action="/medicos/salvar" method="POST">
+                                    <form action="/agenda/salvar" method="POST">
                                         @csrf
-                                        <input type="hidden" name="id" value="@isset($medico){{$medico->id}}@endisset">
+                                        <input type="hidden" name="id" value="@isset($agenda){{$agenda->id}}@endisset">
                                         <div class="row">
                                             <div class="col-5">
                                                 <div class="form-group">
-                                                    <label class="form-label">Nome do Profissional</label>
-                                                    <input type="text" name="nome" class="form-control" required value="@if(isset($medico)){{$medico->nome}}@else{{old('nome')}}@endif">
+                                                    <label for="paciente_id" class="form-label">Paciente</label>
+                                                    <select name="paciente_id" id="paciente_id" class="form-control">
+                                                        <option value="">Selecione um Paciente</option>
+                                                        @foreach($paciente_id as $item)
+                                                        <option value="{{$item->id}}" @if(isset($agenda) &&$agenda->paciente_id == $item->id) selected @elseif(old('paciente_id') == $item->id) selected @endif>{{$item->nome}}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-5">
                                                 <div class="form-group">
-                                                    <label class="form-label">Data de nascimento</label>
-                                                    <input type="date" name="data_nasc" class="form-control" required value="@if(isset($medico)){{$medico->data_nasc}}@else{{old('data_nasc')}}@endif">
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <div class="form-group">
-                                                    <label class="form-label">Titulo</label>
-                                                    <select  name="titulo" class="form-control" value="@if(isset($medico)){{$medico->titulo}}@else{{old('titulo')}}@endif">
-                                                        <option value="">Selecione</option>
-                                                        @foreach ($titulo as $key => $tipo)
-                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->titulo == $tipo) selected @elseif(old('titulo') == $tipo) selected @endif>{{$tipo}}</option>
+                                                    <label for="medico_id" class="form-label">Médico</label>
+                                                    <select name="medico_id" id="medico_id" class="form-control">
+                                                        <option value="">Selecione um Médico</option>
+                                                        @foreach($medico_id as $item)
+                                                        <option value="{{$item->id}}" @if(isset($agenda) &&$agenda->medico_id == $item->id) selected @elseif(old('medico_id') == $item->id) selected @endif>{{$item->nome}}
+                                                        </option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-2">
-                                                <div class="form-group">
-                                                    <label class="form-label">Status</label>
-                                                    <select required name="status" class="form-control" value="@if(isset($medico)){{$medico->status}}@else{{old('status')}}@endif">
-                                                        <option value="">Selecione</option>
-                                                        @foreach ($status as $key => $tipo)
-                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->status == $tipo) selected @elseif(old('status') == $tipo) selected @endif>{{$tipo}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="form-label">Tipo</label>
-                                                    <select required name="tipo_p" class="form-control" value="@if(isset($medico)){{$medico->tipo_p}}@else{{old('tipo_p')}}@endif">
+                                                    <select name="tipo_a" class="form-control" value="@if(isset($agenda)){{$agenda->tipo_a}}@else{{old('tipo_a')}}@endif">
                                                         <option value="">Selecione</option>
-                                                        @foreach ($tipo_p as $key => $tipo)
-                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->tipo_p == $tipo) selected @elseif(old('tipo_p') == $tipo) selected @endif>{{$tipo}}</option>
+                                                        @foreach ($tipo_a as $key => $tipo)
+                                                        <option value="{{$tipo}}" @if(isset($agenda) && $agenda->tipo_a == $tipo) selected @elseif(old('tipo_a') == $tipo) selected @endif>{{$tipo}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-2">
-                                            <div class="form-group">
-                                                    <label class="form-label">UF Conselho</label>
-                                                    <input type="text" name="uf_conselho" class="form-control" required value="@if(isset($medico)){{$medico->uf_conselho}}@else{{old('uf_conselho')}}@endif">
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="form-label">Data</label>
+                                                    <input type="date" name="data" class="form-control" required value="@if(isset($agenda)){{$agenda->data}}@else{{old('data')}}@endif">
                                                 </div>
                                             </div>
-                                            <div class="col-2">
+                                            <div class="col-3">
                                                 <div class="form-group">
-                                                    <label class="form-label">N° do Conselho</label>
-                                                    <input type="text" name="n_conselho" class="form-control" required value="@if(isset($medico)){{$medico->n_conselho}}@else{{old('n_conselho')}}@endif">
+                                                    <label class="form-label">Horário</label>
+                                                    <input type="time" name="horario" class="form-control" required value="@if(isset($agenda)){{$agenda->horario}}@else{{old('horario')}}@endif">
                                                 </div>
                                             </div>
-                                            <div class="col-5">
+                                            <div class="col-3">
                                                 <div class="form-group">
-                                                    <label class="form-label">Conselho</label>
-                                                    <select required name="conselho" class="form-control" value="@if(isset($medico)){{$medico->conselho}}@else{{old('conselho')}}@endif">
+                                                    <label class="form-label">Consultório</label>
+                                                    <select name="consult" class="form-control" value="@if(isset($agenda)){{$agenda->consult}}@else{{old('consult')}}@endif">
                                                         <option value="">Selecione</option>
-                                                        @foreach ($conselho as $key => $tipo)
-                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->conselho == $tipo) selected @elseif(old('conselho') == $tipo) selected @endif>{{$tipo}}</option>
+                                                        @foreach ($consult as $key => $tipo)
+                                                        <option value="{{$tipo}}" @if(isset($agenda) && $agenda->consult == $tipo) selected @elseif(old('consult') == $tipo) selected @endif>{{$tipo}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -135,130 +122,19 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <ul class="nav nav-tabs md-tabs" role="tablist">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link active" data-toggle="tab" href="#informacoes" role="tab">Informações Pessoais</a>
-                                                        <div class="slide"></div>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#2" role="tab">Especialidade/Corpo Clínico</a>
-                                                        <div class="slide"></div>
-                                                    </li>
-                                                </ul>
-                                                <!-- Tab panes -->
-                                                <div class="tab-content card-block">
-                                                    <div class="tab-pane active" id="informacoes" role="tabpanel">
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">RG</label>
-                                                                    <input type="text" name="rg" class="form-control" value="@if(isset($medico)){{$medico->rg}}@else{{old('rg')}}@endif" onKeyPress="MascaraGenerica(this, 'RG');">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-2">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Orgão emissor</label>
-                                                                    <input type="text" name="emissor" class="form-control" value="@if(isset($medico)){{$medico->emissor}}@else{{old('emissor')}}@endif">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">CPF</label>
-                                                                    <input type="text" name="cpf" class="form-control" value="@if(isset($medico)){{$medico->cpf}}@else{{old('cpf')}}@endif" onKeyPress="MascaraGenerica(this, 'CPF');">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Sexo</label>
-                                                                    <select name="sexo" class="form-control" value="@if(isset($medico)){{$medico->sexo}}@else{{old('sexo')}}@endif">
-                                                                        <option value="">Selecione</option>
-                                                                        @foreach ($tipo_sexo as $key => $tipo)
-                                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->sexo == $tipo) selected @elseif(old('sexo') == $tipo) selected @endif>{{$tipo}}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Endereço</label>
-                                                                    <input id="rua" type="text" name="endereco" class="form-control" required value="@if(isset($medico)){{$medico->endereco}}@else{{old('endereco')}}@endif">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <div class="form-group floating-label">
-                                                                    <label class="">Cidade</label>
-                                                                    <input id="cidade" type="text" name="cidade" class="form-control floating-input" value="@if(isset($medico)){{$medico->cidade}}@else{{old('cidade')}}@endif">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Bairro</label>
-                                                                    <input id="bairro" type="text" name="bairro" class="form-control" value="@if(isset($medico)){{$medico->bairro}}@else{{old('bairro')}}@endif">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-5">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Complemento</label>
-                                                                    <input type="text" name="complemento" class="form-control" value="@if(isset($medico)){{$medico->complemento}}@else{{old('complemento')}}@endif">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-2">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Número</label>
-                                                                    <input type="number" name="numero" class="form-control" value="@if(isset($medico)){{$medico->numero}}@else{{old('numero')}}@endif">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-2">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">UF</label>
-                                                                    <input id="uf" type="text" name="uf" class="form-control" value="@if(isset($medico)){{$medico->uf}}@else{{old('uf')}}@endif">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">CEP</label>
-                                                                    <input id="cep" type="text" name="cep" class="form-control" required value="@if(isset($medico)){{$medico->cep}}@else{{old('cep')}}@endif" onKeyPress="MascaraGenerica(this, 'CEP');">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Telefone</label>
-                                                                    <input type="text" name="telefone" class="form-control" required value="@if(isset($medico)){{$medico->telefone}}@else{{old('telefone')}}@endif" onKeyPress="MascaraGenerica(this, 'TELEFONE');">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-8">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">E-mail</label>
-                                                                    <input type="text" name="email" class="form-control" required value="@if(isset($medico)){{$medico->email}}@else{{old('email')}}@endif">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tab-pane" id="2" role="tabpanel">
-                                                        <div class="row">
-                                                            <div class="col">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
+                                                <div class="form-group">
+                                                    <label>Observações:</label>
+                                                    <textarea style="height: 140px;" class="form-control" name="observacao" id="observacao" rows="3">@if(isset($agenda)){{$agenda->observacao}}@else{{ old('observacao')}}@endif</textarea>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col" align="end">
-                                                        <br>
-                                                        <button type="submit" class="btn btn-success w-25 hover-shadow">
-                                                            Salvar
-                                                            <i class="ti-save" style="margin: 5px;"></i>
-                                                        </button>
-                                                    </div>
-
-                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col" align="end">
+                                                <br>
+                                                <button type="submit" class="btn btn-success w-25 hover-shadow">
+                                                    Salvar
+                                                    <i class="ti-save" style="margin: 5px;"></i>
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
@@ -273,80 +149,6 @@
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function() {
 
-        function limpa_formulário_cep() {
-            // Limpa valores do formulário de cep.
-            $("#rua").val("");
-            $("#bairro").val("");
-            $("#cidade").val("");
-            $("#uf").val("");
 
-        }
-
-        //Quando o campo cep perde o foco.
-        $("#cep").blur(function() {
-
-            //Nova variável "cep" somente com dígitos.
-            var cep = $(this).val().replace(/\D/g, '');
-
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    $("#rua").val("...");
-                    $("#bairro").val("...");
-                    $("#cidade").val("...");
-                    $("#uf").val("...");
-                    $
-
-                    //Consulta o webservice viacep.com.br/
-                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
-
-                        if (!("erro" in dados)) {
-                            //Atualiza os campos com os valores da consulta.
-                            $("#rua").val(dados.logradouro);
-                            $("#bairro").val(dados.bairro);
-                            $("#cidade").val(dados.localidade);
-                            $("#uf").val(dados.uf);
-
-                        } //end if.
-                        else {
-                            //CEP pesquisado não foi encontrado.
-                            limpa_formulário_cep();
-                            Swal.fire({
-                                icon: 'info',
-                                text: 'Formato de CEP inválido',
-                                
-                            });
-                        }
-                    });
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    Swal.fire({
-                                icon: 'info',
-                                text: 'Formato de CEP inválido',
-                                
-                            });
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        });
-    });
-</script>
 @include('layout.footer')

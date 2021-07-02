@@ -37,10 +37,31 @@
                         <!-- task, page, download counter  start -->
                         <div class="container">
                             <div class="card">
-                                <!-- Button trigger modal -->
-                                <button  type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-
-
+                                <h2 class="title-3 m-b-30" align="home">
+                                    <br>
+                                    <i class="far fa-calendar-alt" style="margin: 10px;"></i>Agendamento
+                                    <div class="card-tools">
+                                    </div>
+                                </h2>
+                                <div class="row">
+                                    <div class="col" style="margin: 10px;">
+                                        <a href="/agenda/novo" class="btn btn-primary">
+                                            Novo Agendamento
+                                            <i class="ti-plus"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col" style="margin: 10px;">
+                                        <div class="input-group input-group float-right " style="width: 250px;">
+                                            <input type="text" name="pesquisa" class="form-control" placeholder="Pesquisar" value="{{ $pesquisa }}">
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-secondary">
+                                                    <i class="ti-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
                             </div>
                         </div>
 
@@ -51,58 +72,5 @@
             <div id="styleSelector"> </div>
         </div>
     </div>
-
-    <!-- Modal -->
-    <form action="/agenda/salvar" method="POST">
-        @csrf
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myLargeModalLabel">Novo Agendamento</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="form-group">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                   
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label class="form-label">Medico</label>
-                                    <input type="text" name="medico" class="form-control" required value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                themeSystem: 'bootstrap'
-            });
-            calendar.render();
-        });
-    </script>
 
     @include('layout.footer')

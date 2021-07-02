@@ -29,7 +29,10 @@ Route::get('/medicos/editar/{id}', [MedicosController::class, 'editar'])->name('
 Route::get('/medicos/deletar/{id}', [MedicosController::class, 'deletar'])->name('medicos.deletar');
 
 Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
+Route::get('/agenda/novo', [AgendaController::class, 'novo'])->name('agenda.novo');
 Route::post('/agenda/salvar', [AgendaController::class, 'salvar'])->name('agenda.salvar');
+Route::get('/agenda/editar/{id}', [AgendaController::class, 'editar'])->name('agenda.editar');
+Route::get('/agenda/deletar/{id}', [AgendaController::class, 'deletar'])->name('agenda.deletar');
 
 Route::post('/espec/salvar', [EspecController::class, 'salvar'])->name('espec.salvar');
 Route::get('/espec/editar/{id}', [EspecController::class, 'editar'])->name('espec.editar');

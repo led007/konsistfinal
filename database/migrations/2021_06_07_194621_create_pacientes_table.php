@@ -29,7 +29,7 @@ class CreatePacientesTable extends Migration
             $table->string('cidade', 70)->nullable();
             $table->string('uf', 2)->nullable();
             $table->string('email')->nullable();
-            $table->string('telefone', 15)->nullable();
+            $table->string('telefone')->nullable();
             $table->string('nome_social')->nullable();
             $table->string('rg')->nullable();
             $table->string('emissor')->nullable();

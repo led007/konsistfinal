@@ -6,7 +6,9 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\PacientesController;
 use App\Http\Controllers\MedicosController;
 use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\EspecController;
+
+
+
 Route::get('/', [HomeController::class, 'index']);
 
 
@@ -27,6 +29,7 @@ Route::get('/medicos/novo', [MedicosController::class, 'novo'])->name('medicos.n
 Route::post('/medicos/salvar', [MedicosController::class, 'salvar'])->name('medicos.salvar');
 Route::get('/medicos/editar/{id}', [MedicosController::class, 'editar'])->name('medicos.editar');
 Route::get('/medicos/deletar/{id}', [MedicosController::class, 'deletar'])->name('medicos.deletar');
+Route::get('medicos/especialidades/{medico}', [MedicosController::class, 'especialidades'])->name('medicos.especialidades');
 
 Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
 Route::get('/agenda/novo', [AgendaController::class, 'novo'])->name('agenda.novo');
@@ -34,6 +37,3 @@ Route::post('/agenda/salvar', [AgendaController::class, 'salvar'])->name('agenda
 Route::get('/agenda/editar/{id}', [AgendaController::class, 'editar'])->name('agenda.editar');
 Route::get('/agenda/deletar/{id}', [AgendaController::class, 'deletar'])->name('agenda.deletar');
 
-Route::post('/espec/salvar', [EspecController::class, 'salvar'])->name('espec.salvar');
-Route::get('/espec/editar/{id}', [EspecController::class, 'editar'])->name('espec.editar');
-Route::get('/espec/deletar/{id}', [EspecController::class, 'deletar'])->name('espec.deletar');

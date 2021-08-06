@@ -31,7 +31,9 @@ class Medico extends Model
         'cpf',
         'telefone',
         'cep'
-
-        
     ]; 
+
+    public function especialidades() {
+        return $this->hasMany(Especialidades::class, 'medico_id');
+    }
 }

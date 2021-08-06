@@ -101,7 +101,7 @@
                                                 <td align="center">{{ $item->id }}</td>
                                                 <td align="center">{{ $item->nome }}</td>
                                                 <td align="center">{{ $item->status }}</td>
-                                                <td align="center">Enfermeiro</td>
+                                                <td align="center">{{$item->id}}</td>
                                                 <td align="end">
                                                     <a href="/medicos/editar/{{ $item->id }}" class="btn btn-info">
                                                         <i class="ti-write"></i>

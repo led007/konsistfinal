@@ -27,42 +27,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <form action="/espec/salvar" method="POST">
-        @csrf
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myLargeModalLabel">Nova Especialidade</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                        <input type="hidden" name="id" value="">
 
-                            <div class="col-5">
-                                <div class="form-group">
-                                <label class="form-label">Nome da especialidade</label>
-                                <input type="text" name="nome" class="form-control" required value="">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
     <div class="pcoded-inner-content">
         <!-- Main-body start -->
         <div class="main-body">
@@ -279,44 +244,38 @@
                                                     </div>
                                                     <div class="tab-pane" id="2" role="tabpanel">
                                                         <div class="row">
-                                                            <div class="col">
-
-                                                                <div class="container">
-                                                                    <div align='end'>
-                                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Nova especialidade</button>
-                                                                    </div>
-                                                                    <br>
-                                                                    <div class="col-lg-12">
-                                                                        <table class="table table-hover ">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <td align="center">#</td>
-                                                                                    <td align="center">Especialidade</td>
-                                                                                    <td align="center">Padrão</td>
-                                                                                    <td align="center">Ações</td>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            @foreach ($espec as $item)
-                                                                            <tbody>
-                                                                                <td align="center">{{ $item->id }}</td>
-                                                                                <td align="center">{{ $item->nome }}</td>
-                                                                                <td align="center">3</td>
-                                                                                <td align="center">4</td>
-                                                                                <td align="end">
-                                                                                    <a href="/espec/editar/{{ $item->id }}" class="btn btn-info">
-                                                                                        <i class="ti-write"></i>
-                                                                                    </a>
-
-                                                                                    <a href="#" class="btn btn-danger" onclick="deleta('/espec/deletar/{{ $item->id }}')">
-                                                                                        <i class="ti-trash"></i>
-                                                                                    </a>
-
-                                                                                </td>
-                                                                            </tbody>
-                                                                            @endforeach
-                                                                        </table>
+                                                            <div class="col-lg-10">
+                                                                @if(isset($medico) && count($medico->especialidades) > 0)
+                                                                @foreach ($medico->especialidades as $item)
+                                                                <div id="inputFormRow">
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="text" name="especialidades[]" class="form-control m-input" placeholder="Adicionar especialidade" autocomplete="off" value="{{ $item->nome }}">
+                                                                        <div class="input-group-append">
+                                                                            <button id="removeRow" type="button" class="btn btn-danger">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                @endforeach
+                                                                @else
+                                                                <div id="inputFormRow">
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="text" name="especialidades[]" class="form-control m-input" placeholder="Adicionar especialidade" autocomplete="off">
+                                                                        <div class="input-group-append">
+                                                                            <button id="removeRow" type="button" class="btn btn-danger">
+                                                                                <i class="fas fa-trash"></i>
+
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                @endif
+
+                                                                <div id="newRow"></div>
+                                                                <button id="addRow" type="button" class="btn btn-info">
+                                                                    <i class="fas fa-plus"></i>
+                                                                    Adicionar</button>
                                                             </div>
                                                         </div>
 
@@ -348,6 +307,7 @@
 </div>
 </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
@@ -420,5 +380,24 @@
             }
         });
     });
+</script>
+
+<script type="text/javascript">
+  // add row
+  $("#addRow").click(function () {
+      var html = '';
+      html += '<div id="inputFormRow">';
+      html += '<div class="input-group mb-3">';
+      html += '<input type="text" name="especialidades[]" class="form-control m-input" placeholder="Adicionar especialidade" autocomplete="off">';
+      html += '<div class="input-group-append">';
+      html += '<button id="removeRow" type="button" class="btn btn-danger"> <i class="fas fa-trash"></i></button>';
+      html += '</div>';
+      html += '</div>';
+      $('#newRow').append(html);
+  });
+  // remove row
+  $(document).on('click', '#removeRow', function () {
+      $(this).closest('#inputFormRow').remove();
+  });
 </script>
 @include('layout.footer')

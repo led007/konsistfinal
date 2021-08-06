@@ -69,7 +69,7 @@
                                 <div class="card-block">
                                     <form action="/pacientes/salvar" method="POST">
                                         @csrf
-                                        <input type="hidden" name="id" value="@isset($agenda){{$agenda->id}}@endisset">
+                                        <input type="hidden" name="id" value="@isset($paciente){{$paciente->id}}@endisset">
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">

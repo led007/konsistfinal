@@ -43,7 +43,7 @@ class PacientesController extends Controller
     }
     public function salvar(PacientesRequest $request)
     {
-        if ($request->id != '') {
+        if($request->id != '') {
             $paciente = Paciente::find($request->id);
             $paciente->update($request->all());
         } else {

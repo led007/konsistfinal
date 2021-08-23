@@ -26,18 +26,38 @@
     </div>
 
     <!-- Modal start -->
-
-    <div class="modal fade modal-icon" id="#" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    @foreach ($medicos as $item)
+    <div class="modal fade modal-icon" id="modal{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Dados do Paciente</h4>
+                    <h4 class="modal-title" id="myModalLabel">Dados do Médico</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                <div class="col-md">
+                            <div class="form-group">
+                                Nome:
+                                <input class="form-control" readonly type="text" value="{{$item->nome}}">
+                            </div>
+                            <div class="form-group">
+                                Email:
+                                <input class="form-control" readonly type="text" value="{{$item->email}}">
+                            </div>
+                            <div class="form-group">
+                                Conselho:
+                                <input class="form-control" readonly type="text" value="{{$item->conselho}}">
+                            </div>
+                            Especialidades:
+                            @foreach ($item->especialidades as $item_espec)
+                            <br>
+                            <input class="form-control" readonly type="text" value="{{$item_espec->nome}}">
+                           
+                            @endforeach
 
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -45,6 +65,7 @@
             </div>
         </div>
     </div>
+    @endforeach
 
     <!-- Modal end -->
 
@@ -101,7 +122,7 @@
                                                 <td align="center">{{ $item->id }}</td>
                                                 <td align="center">{{ $item->nome }}</td>
                                                 <td align="center">{{ $item->status }}</td>
-                                                <td>
+                                                <td align="center">
                                                     @foreach ($item->especialidades as $item_espec)
                                                     {!! $item_espec->nome . '<br>' !!}
                                                     @endforeach
@@ -110,7 +131,7 @@
                                                     <a href="/medicos/editar/{{ $item->id }}" class="btn btn-info">
                                                         <i class="ti-write"></i>
                                                     </a>
-                                                    <button data-target="#" data-toggle="modal" class="btn btn-inverse">
+                                                    <button data-target="#modal{{ $item->id }}" data-toggle="modal" class="btn btn-inverse">
                                                         <i class="ti-eye"></i>
                                                     </button>
                                                     <a href="#" class="btn btn-danger" onclick="deleta('/medicos/deletar/{{ $item->id }}')">

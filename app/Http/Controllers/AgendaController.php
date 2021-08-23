@@ -8,6 +8,7 @@ use App\Models\Medico;
 use App\Models\Paciente;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\AgendamentoRequest;
 
 
 class AgendaController extends Controller
@@ -42,7 +43,7 @@ class AgendaController extends Controller
         $medico_id = Medico::select('nome', 'id')->get();
         return view('agenda.form', compact('medico_id','paciente_id','tipo_a','consult'));
     }
-    public function salvar(Request $request)
+    public function salvar(AgendamentoRequest $request)
     {
         if ($request->id != '') {
             $agenda = Agenda::find($request->id);

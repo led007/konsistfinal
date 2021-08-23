@@ -15,7 +15,7 @@ class CreateEspecialidadesTable extends Migration
     {
         Schema::create('especialidades', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('nome')->nullable();
             $table->unsignedBigInteger('medico_id');
             $table->foreign('medico_id')->references('id')->on('medicos');
             $table->timestamps();

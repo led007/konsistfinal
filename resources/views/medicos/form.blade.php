@@ -275,20 +275,32 @@
                                                                 <div id="newRow"></div>
                                                                 <button id="addRow" type="button" class="btn btn-info">
                                                                     <i class="fas fa-plus"></i>
-                                                                    Adicionar</button>
+                                                                    Adicionar
+                                                                </button>
                                                             </div>
+                                                            
                                                         </div>
+                                                        <br>
 
                                                     </div>
+
                                                     <div class="row">
+                                                        <br>
+                                                        <div class="col-3" align="home">
+                                                            @isset($medico->id)
+                                                            <a href="/medicos/gerar_pdf/{{ $medico->id }}" class="btn btn-danger" target="_blank">
+                                                                Gerar PDF
+                                                                <i class="fas fa-file-pdf"></i>
+                                                            </a>
+                                                            @endisset
+                                                        </div>
+                                                        <br>
                                                         <div class="col" align="end">
-                                                            <br>
                                                             <button type="submit" class="btn btn-success w-25 hover-shadow">
                                                                 Salvar
                                                                 <i class="ti-save" style="margin: 5px;"></i>
                                                             </button>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -307,6 +319,7 @@
 </div>
 </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
@@ -383,21 +396,21 @@
 </script>
 
 <script type="text/javascript">
-  // add row
-  $("#addRow").click(function () {
-      var html = '';
-      html += '<div id="inputFormRow">';
-      html += '<div class="input-group mb-3">';
-      html += '<input type="text" name="especialidades[]" class="form-control m-input" placeholder="Adicionar especialidade" autocomplete="off">';
-      html += '<div class="input-group-append">';
-      html += '<button id="removeRow" type="button" class="btn btn-danger"> <i class="fas fa-trash"></i></button>';
-      html += '</div>';
-      html += '</div>';
-      $('#newRow').append(html);
-  });
-  // remove row
-  $(document).on('click', '#removeRow', function () {
-      $(this).closest('#inputFormRow').remove();
-  });
+    // add row
+    $("#addRow").click(function() {
+        var html = '';
+        html += '<div id="inputFormRow">';
+        html += '<div class="input-group mb-3">';
+        html += '<input type="text" name="especialidades[]" class="form-control m-input" placeholder="Adicionar especialidade" autocomplete="off">';
+        html += '<div class="input-group-append">';
+        html += '<button id="removeRow" type="button" class="btn btn-danger"> <i class="fas fa-trash"></i></button>';
+        html += '</div>';
+        html += '</div>';
+        $('#newRow').append(html);
+    });
+    // remove row
+    $(document).on('click', '#removeRow', function() {
+        $(this).closest('#inputFormRow').remove();
+    });
 </script>
 @include('layout.footer')

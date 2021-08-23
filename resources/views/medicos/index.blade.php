@@ -26,7 +26,7 @@
     </div>
 
     <!-- Modal start -->
-    
+
     <div class="modal fade modal-icon" id="#" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -37,7 +37,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal end -->
 
     <div class="pcoded-inner-content">
@@ -101,7 +101,11 @@
                                                 <td align="center">{{ $item->id }}</td>
                                                 <td align="center">{{ $item->nome }}</td>
                                                 <td align="center">{{ $item->status }}</td>
-                                                <td align="center">{{$item->id}}</td>
+                                                <td>
+                                                    @foreach ($item->especialidades as $item_espec)
+                                                    {!! $item_espec->nome . '<br>' !!}
+                                                    @endforeach
+                                                </td>
                                                 <td align="end">
                                                     <a href="/medicos/editar/{{ $item->id }}" class="btn btn-info">
                                                         <i class="ti-write"></i>
@@ -115,7 +119,7 @@
 
                                                 </td>
                                             </tbody>
-                                          @endforeach  
+                                            @endforeach
                                         </table>
                                     </div>
                                     <div class="row">

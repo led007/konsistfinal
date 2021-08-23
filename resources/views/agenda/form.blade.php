@@ -99,13 +99,13 @@
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="form-label">Data</label>
-                                                    <input type="date" name="data" class="form-control" required value="@if(isset($agenda)){{$agenda->data}}@else{{old('data')}}@endif">
+                                                    <input required  type="date" min="{{ date('Y-m-d') }}" name="data" class="form-control" value="@if(isset($agenda)){{$agenda->data}}@else{{old('data')}}@endif" >
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="form-label">Horário</label>
-                                                    <input type="time" name="horario" class="form-control" required value="@if(isset($agenda)){{$agenda->horario}}@else{{old('horario')}}@endif">
+                                                    <input type="time" name="hora" class="form-control" required value="@if(isset($agenda)){{$agenda->hora}}@else{{old('hora')}}@endif">
                                                 </div>
                                             </div>
                                             <div class="col-3">
@@ -119,6 +119,13 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label class="form-label">Preço:</label>
+                                                    <input type="text" name="preco" class="form-control" required value="@if(isset($agenda)){{$agenda->preco}}@else{{old('preco')}}@endif" onKeyPress="MascaraGenerica(this, 'MOEDA');">
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                         <div class="row">
                                             <div class="col">
@@ -149,6 +156,5 @@
         </div>
     </div>
 </div>
-
 
 @include('layout.footer')

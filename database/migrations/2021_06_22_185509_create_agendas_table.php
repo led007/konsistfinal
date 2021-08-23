@@ -19,9 +19,10 @@ class CreateAgendasTable extends Migration
             $table->bigInteger('medico_id');
             $table->enum('tipo_a', ['Consulta', 'Exame']);
             $table->string('data');
-            $table->string('horario')->nullable();
+            $table->time('hora')->nullable();
             $table->enum('consult', ['Consultório 1', 'Consultório 2', 'Consultório 3', 'Consultório 4','Consultório 5']);
-            $table->text('observacao');
+            $table->text('observacao')->nullable();
+            $table->text('preco')->nullable();
             $table->timestamps();
         });
     }

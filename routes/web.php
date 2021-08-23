@@ -29,7 +29,8 @@ Route::get('/medicos/novo', [MedicosController::class, 'novo'])->name('medicos.n
 Route::post('/medicos/salvar', [MedicosController::class, 'salvar'])->name('medicos.salvar');
 Route::get('/medicos/editar/{id}', [MedicosController::class, 'editar'])->name('medicos.editar');
 Route::get('/medicos/deletar/{id}', [MedicosController::class, 'deletar'])->name('medicos.deletar');
-Route::get('medicos/especialidades/{medico}', [MedicosController::class, 'especialidades'])->name('medicos.especialidades');
+Route::get('/medicos/especialidades/{medico}', [MedicosController::class, 'especialidades'])->name('medicos.especialidades');
+Route::get('medicos/gerar_pdf/{id}', [MedicosController::class, 'gerar_pdf'])->name('medicos.gerar_pdf');
 
 Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
 Route::get('/agenda/novo', [AgendaController::class, 'novo'])->name('agenda.novo');

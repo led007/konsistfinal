@@ -14,7 +14,9 @@ class Agenda extends Model
         'paciente_id',
         'medico_id',
         'tipo_a',
-        'data'
+        'data',
+        'hora',
+        'preco'
     ]; 
 
     public function medico()

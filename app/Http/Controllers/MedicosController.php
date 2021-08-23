@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Especialidades;
 
+use PDF;
+
 
 class MedicosController extends Controller
 {   
@@ -87,6 +89,15 @@ class MedicosController extends Controller
         Alert::toast('Salvo com sucesso!', 'success');
 
         return redirect('/medicos/editar/' . $medico->id);
+    }
+
+    public function gerar_pdf($id){
+        
+        $medicos = Medico::find($id);
+        view()->share('medicos', $medicos);
+        $pdf_doc = PDF::loadView('medicos.gerar_pdf', $medicos);
+        
+        return $pdf_doc->stream('medicos.pdf');
     }
 
     public function editar($id)

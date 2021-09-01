@@ -24,9 +24,12 @@ class AgendaController extends Controller
         $pesquisa = $request->pesquisa;
         if ($pesquisa != '') {
             $agenda = Agendamentos::with('medico','pacientes')
-            ->where('nome','like', "%".$pesquisa."%")
-            ->orWhere('situacao','like', "%".$pesquisa."%")
+            ->where('data','like', "%".$pesquisa."%")
+            ->orWhere('consult','like', "%".$pesquisa."%")
             ->orWhereHas('medico', function($query) use ($pesquisa){
+                $query->where('nome','like', "%".$pesquisa."%");
+            })
+            ->orWhereHas('pacientes', function($query) use ($pesquisa){
                 $query->where('nome','like', "%".$pesquisa."%");
             })
             ->paginate(10);

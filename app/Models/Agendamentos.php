@@ -17,7 +17,8 @@ class Agendamentos extends Model
         'data',
         'hora',
         'preco',
-        'observacao'
+        'observacao',
+        'consult'
     ]; 
 
     public function medico()

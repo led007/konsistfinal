@@ -97,15 +97,17 @@
                                                     <td align="center">Data</td>
                                                     <td align="center">Paciente</td>
                                                     <td align="center">Médico</td>
+                                                    <td align="center">Consultório</td>
                                                     <td align="center">Ações</td>
                                                 </tr>
                                             </thead>
                                             @foreach ($agenda as $item)
                                             <tbody>
                                                 <td align="center">{{ $item->id }}</td>
-                                                <td align="center">{{ $item->data }}</td>
+                                                <td align="center">{{ date( 'd/m' , strtotime($item->data))}}</td>
                                                 <td align="center">{{ $item->medico->nome }}</td>
                                                 <td align="center">{{ $item->pacientes->nome}}</td>
+                                                <td align="center">{{ $item->consult}}</td>
                                     
                                                 <td align="end">
                                                     <a href="/agenda/editar/{{ $item->id }}" class="btn btn-info">

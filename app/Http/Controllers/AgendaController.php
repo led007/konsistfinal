@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agenda;
+use App\Models\Agendamentos;
 use Illuminate\Http\Request;
 use App\Models\Medico;
 use App\Models\Paciente;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\AgendamentoRequest;
+
 
 
 class AgendaController extends Controller
@@ -22,7 +23,7 @@ class AgendaController extends Controller
         $medico_id = Medico::select('nome', 'id')->get();
         $pesquisa = $request->pesquisa;
         if ($pesquisa != '') {
-            $agenda = Agenda::with('medico','paciente')
+            $agenda = Agendamentos::with('medico','pacientes')
             ->where('nome','like', "%".$pesquisa."%")
             ->orWhere('situacao','like', "%".$pesquisa."%")
             ->orWhereHas('medico', function($query) use ($pesquisa){
@@ -30,8 +31,9 @@ class AgendaController extends Controller
             })
             ->paginate(10);
         } else {
-            $agenda = Agenda::with('medico')->paginate(10);
+            $agenda = Agendamentos::with('medico','pacientes')->paginate(10);
         }
+        
        
         return view('agenda.index', compact('agenda', 'pesquisa','medico_id'));
     }
@@ -44,12 +46,13 @@ class AgendaController extends Controller
         return view('agenda.form', compact('medico_id','paciente_id','tipo_a','consult'));
     }
     public function salvar(AgendamentoRequest $request)
-    {
+    {      
+        
         if ($request->id != '') {
-            $agenda = Agenda::find($request->id);
+            $agenda = Agendamentos::find($request->id);
             $agenda->update($request->all());
         } else {
-            $agenda = Agenda::create($request->all());
+            $agenda = Agendamentos::create($request->all());
         }
         
         $validator = Validator::make($request->all(), [    
@@ -67,14 +70,14 @@ class AgendaController extends Controller
         $tipo_a = $this->tipo_a;
         $medico_id = Medico::select('nome', 'id')->get();
         $paciente_id = Paciente::select('nome', 'id')->get();
-        $agenda = Agenda::find($id);
+        $agenda = Agendamentos::find($id);
 
         return view('agenda.form', compact('agenda','medico_id','paciente_id','tipo_a','consult'));
     }
 
     public function deletar($id)
     {
-        $agenda = Agenda::find($id);
+        $agenda = Agendamentos::find($id);
         if (!empty($agenda)) {
             $agenda->delete();
             return redirect('/agenda');

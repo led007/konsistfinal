@@ -13,6 +13,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
+        "qlick/laravel-full-calendar": "^1.1",
         "realrashid/sweet-alert": "^3.2"
     },
     "require-dev": {

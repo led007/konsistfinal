@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72b32ba56458d606463c15c4e07e579d",
+    "content-hash": "b2a913f01e98531d866669da41a67827",
     "packages": [
         {
             "name": "acaronlex/laravel-calendar",
@@ -1214,6 +1214,62 @@
             "time": "2021-05-27T16:46:06+00:00"
         },
         {
+            "name": "laravel/helpers",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/helpers.git",
+                "reference": "febb10d8daaf86123825de2cb87f789a3371f0ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/helpers/zipball/febb10d8daaf86123825de2cb87f789a3371f0ac",
+                "reference": "febb10d8daaf86123825de2cb87f789a3371f0ac",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0",
+                "php": "^7.1.3|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "email": "dries.vints@gmail.com"
+                }
+            ],
+            "description": "Provides backwards compatibility for helpers in the latest Laravel release.",
+            "keywords": [
+                "helpers",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/helpers/tree/v1.4.1"
+            },
+            "time": "2021-02-16T15:27:11+00:00"
+        },
+        {
             "name": "laravel/tinker",
             "version": "v2.6.1",
             "source": {
@@ -2375,6 +2431,66 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.10.8"
             },
             "time": "2021-04-10T16:23:39+00:00"
+        },
+        {
+            "name": "qlick/laravel-full-calendar",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nelkasovic/laravel-full-calendar.git",
+                "reference": "8942c3fa271d3869867ce37b13638ccd0eb36d25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nelkasovic/laravel-full-calendar/zipball/8942c3fa271d3869867ce37b13638ccd0eb36d25",
+                "reference": "8942c3fa271d3869867ce37b13638ccd0eb36d25",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "laravel/helpers": "^1.0",
+                "php": "^7.1|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelFullCalendar\\FullCalendarServiceProvider"
+                    ],
+                    "aliases": {
+                        "Calendar": "LaravelFullCalendar\\Facades\\Calendar"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "App\\": "app/",
+                    "LaravelFullCalendar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Qlick by Nermin Elkasovic",
+                    "email": "nermin@qlick.ch",
+                    "homepage": "https://qlick.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel helper for FullCalendar.io. Fork of https://github.com/maddhatter/laravel-fullcalendar",
+            "homepage": "https://github.com/nelkasovic/laravel-full-calendar",
+            "support": {
+                "docs": "https://github.com/nelkasovic/laravel-full-calendar",
+                "email": "nermin@qlick.ch",
+                "issues": "https://github.com/nelkasovic/laravel-full-calendar/issues",
+                "source": "https://github.com/nelkasovic/laravel-full-calendar",
+                "wiki": "https://github.com/nelkasovic/laravel-full-calendar/wiki"
+            },
+            "time": "2021-02-12T19:08:35+00:00"
         },
         {
             "name": "ralouphie/getallheaders",

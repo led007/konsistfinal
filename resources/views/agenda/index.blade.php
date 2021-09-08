@@ -105,8 +105,8 @@
                                             <tbody>
                                                 <td align="center">{{ $item->id }}</td>
                                                 <td align="center">{{ date( 'd/m' , strtotime($item->data))}}</td>
-                                                <td align="center">{{ $item->medico->nome }}</td>
                                                 <td align="center">{{ $item->pacientes->nome}}</td>
+                                                <td align="center">{{ $item->medico->nome }}</td>
                                                 <td align="center">{{ $item->consult}}</td>
                                     
                                                 <td align="end">

@@ -38,3 +38,4 @@ Route::post('/agenda/salvar', [AgendaController::class, 'salvar'])->name('agenda
 Route::get('/agenda/editar/{id}', [AgendaController::class, 'editar'])->name('agenda.editar');
 Route::get('/agenda/deletar/{id}', [AgendaController::class, 'deletar'])->name('agenda.deletar');
 
+

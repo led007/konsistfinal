@@ -37,10 +37,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                <div class="col-md">
-                            
+                    <div class="col-md">
 
-                </div>
+
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -97,7 +97,7 @@
                                                     <td align="center">Data</td>
                                                     <td align="center">Paciente</td>
                                                     <td align="center">Médico</td>
-                                                    <td align="center">Consultório</td>
+                                                    <td align="center">Status</td>
                                                     <td align="center">Ações</td>
                                                 </tr>
                                             </thead>
@@ -107,8 +107,10 @@
                                                 <td align="center">{{ date( 'd/m' , strtotime($item->data))}}</td>
                                                 <td align="center">{{ $item->pacientes->nome}}</td>
                                                 <td align="center">{{ $item->medico->nome }}</td>
-                                                <td align="center">{{ $item->consult}}</td>
-                                    
+                                                <td align="center"><div class="@if($item->status == 'A ser atendido') bg-warning @elseif($item->status == 'Atendimento finalizado') bg-success @elseif($item->status == 'Atendimento cancelado') bg-danger @endif">
+                                                {{$item->status}}
+                                                </div></td>
+
                                                 <td align="end">
                                                     <a href="/agenda/editar/{{ $item->id }}" class="btn btn-info">
                                                         <i class="ti-write"></i>
@@ -148,3 +150,4 @@
 
 
 @include('layout.footer')
+

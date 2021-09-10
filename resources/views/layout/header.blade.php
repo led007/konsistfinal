@@ -24,7 +24,8 @@
       <!-- themify icon -->
       <link rel="stylesheet" type="text/css" href="/assets/icon/themify-icons/themify-icons.css">
       <!-- Font Awesome -->
-      <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome-5/css/fontawesome-all.min.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome-5/css/all.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome-5/css/fontawesome.css">
       <!-- scrollbar.css -->
       <link rel="stylesheet" type="text/css" href="/assets/css/jquery.mCustomScrollbar.css">
         <!-- am chart export.css -->

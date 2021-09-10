@@ -124,9 +124,21 @@
                                                     <label class="form-label">Preço:</label>
                                                     <input type="text" name="preco" class="form-control" required value="@if(isset($agenda)){{$agenda->preco}}@else{{old('preco')}}@endif" onKeyPress="MascaraGenerica(this, 'MOEDA');">
                                                 </div>
-                                            </div>
-                                            
+                                            </div>    
                                         </div>
+                                        <div class="row">
+                                                <div class="col-5">
+                                                <div class="form-group">
+                                                    <label class="form-label">Status do atendimento</label>
+                                                    <select name="status" class="form-control" value="@if(isset($agenda)){{$agenda->status}}@else{{old('status')}}@endif">
+                                                        <option value="">Selecione</option>
+                                                        @foreach ($status as $key => $tipo)
+                                                        <option value="{{$tipo}}" @if(isset($agenda) && $agenda->status == $tipo) selected @elseif(old('status') == $tipo) selected @endif>{{$tipo}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                </div>
+                                            </div>
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">

@@ -48,10 +48,10 @@
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
                                                         <h4 class="text-c-green">{{ $data['pacientes'] }}</h4>
-                                                        <h6 class="text-muted m-b-0">Pacientes</h6>
+                                                        <h6 class="text-muted m-b-0">Pacientes finalizados</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
-                                                        <i class="fas fa-user fa-2x"></i>
+                                                        <i class="fas fa-user-check fa-2x"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -72,16 +72,16 @@
                                             <div class="card-block">
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
-                                                        <h4 class="text-c-purple">{{ $data['medicos'] }}</h4>
-                                                        <h6 class="text-muted m-b-0">Médicos</h6>
+                                                        <h4 style="color: #ffe100;" >{{ $data['pacientes'] }}</h4>
+                                                        <h6 class="text-muted m-b-0">Pacientes a ser atendido</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
-                                                        <i class="fas fa-user-md fa-2x"></i>
+                                                        <i class="fas fa-user-clock fa-2x"></i>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="card-footer bg-c-purple">
-                                                <a href="/medicos">
+                                            <div class="card-footer bg-warning">
+                                                <a href="/pacientes">
                                                     <div class="row align-items-center">
                                                         <p class="text-white m-b-0">| total</p>
                                                         <div class="col" align="right">
@@ -98,7 +98,7 @@
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
                                                         <h4 class="text-c-red">{{ $data['pacientes'] }}</h4>
-                                                        <h6 class="text-muted m-b-0">Pacientes</h6>
+                                                        <h6 class="text-muted m-b-0">Atendimento cancelado</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
                                                         <i class="fas fa-user-times fa-2x"></i>
@@ -122,11 +122,11 @@
                                             <div class="card-block">
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
-                                                        <h4 class="text-c-blue">{{ $data['usuarios'] }}</h4>
-                                                        <h6 class="text-muted m-b-0">Usuários</h6>
+                                                        <h4 class="text-c-blue">{{ $data['medicos'] }}</h4>
+                                                        <h6 class="text-muted m-b-0">Total de Médicos</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
-                                                        <i class="fa fa-users fa-2x"></i>
+                                                        <i class="fas fa-user-md fa-2x"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -196,7 +196,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-inline-block align-middle">
-                                                                    <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                                    <img src="assets/images/avatarpaciente.png" alt="user image" class="img-radius img-40 align-top m-r-15">
                                                                     <div class="d-inline-block">
                                                                         <h6>{{ $item->pacientes->nome}}</h6>
                                                                         <p class="text-muted m-b-0">Médico: {{ $item->medico->nome }}</p>
@@ -204,15 +204,21 @@
                                                                 </div>
                                                             </td>
                                                             <td>{{ date( 'd/m' , strtotime($item->data))}}</td>
-                                                            <td>{{ $item->consult}}</td>
-                                                            <td class="text-right"><label class="label label-danger">Low</label></td>
+                                                            <td align="center">
+                                                                <div class="@if($item->status == 'A ser atendido') bg-warning @elseif($item->status == 'Atendimento finalizado') bg-success @elseif($item->status == 'Atendimento cancelado') bg-danger @endif">
+                                                                    {{$item->status}}
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <a href="/agenda">
+                                                                    <i class="fas fa-arrow-circle-right fa-2x"></i>
+                                                                </a>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                     @endforeach
                                                 </table>
-                                                <div class="text-right m-r-20">
-                                                    <a href="#!" class=" b-b-primary text-primary">View all Projects</a>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -220,6 +226,8 @@
                                 <div class="col-xl-4 col-md-12">
                                     <div class="card">
                                         <div class="card-block">
+                                            <h4>Fundos mensais</h4>
+                                            <br>
                                             <div class="row">
                                                 <div class="col">
                                                     <h4>$256.23</h4>
@@ -231,7 +239,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4>$256.23</h4>
+                                                    <h4>$158.00</h4>
                                                     <p class="text-muted">Mês passado</p>
                                                 </div>
                                                 <div class="col-auto">
@@ -240,7 +248,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4>$256.23</h4>
+                                                    <h4>$526.97</h4>
                                                     <p class="text-muted">Mês retrasado</p>
                                                 </div>
                                                 <div class="col-auto">
@@ -249,7 +257,34 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col">
+                                        <div class="card ">
+                                            <div class="card-header">
+                                                <h5>Team Members</h5>
+                                                <div class="card-header-right">
+                                                    <ul class="list-unstyled card-option">
+                                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                        <li><i class="fa fa-minus minimize-card"></i></li>
+                                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-block">
+                                                @foreach ($user as $item)
+                                                <div class="align-middle m-b-30">
+                                                    <img src="{{$item->foto}}" class="img-radius img-40 align-top m-r-15">
+                                                    <div class="d-inline-block">
+                                                        <h6>{{$item->nome}}</h6>
+                                                        <p class="text-muted m-b-0">{{$item->funcao}}</p>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
 
 
                                 <!-- Page-body end -->

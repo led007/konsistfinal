@@ -16,7 +16,7 @@ class AgendaController extends Controller
 {   
     public $tipo_a = ['Consulta', 'Exame'];
     public $consult = ['Consultório 1', 'Consultório 2', 'Consultório 3', 'Consultório 4','Consultório 5'];
-
+    public $status = ['A ser atendido', 'Atendimento finalizado',  'Atendimento cancelado'];
 
     public function index(Request $request)
     {   $paciente_id = Paciente::select('nome', 'id')->get();
@@ -43,10 +43,11 @@ class AgendaController extends Controller
 
     public function novo()
     {   $tipo_a = $this->tipo_a;
+        $status = $this->status;
         $consult = $this->consult;
         $paciente_id = Paciente::select('nome', 'id')->get();
         $medico_id = Medico::select('nome', 'id')->get();
-        return view('agenda.form', compact('medico_id','paciente_id','tipo_a','consult'));
+        return view('agenda.form', compact('medico_id','paciente_id','tipo_a','consult','status'));
     }
     public function salvar(AgendamentoRequest $request)
     {      
@@ -70,12 +71,13 @@ class AgendaController extends Controller
 
     public function editar($id)
     {   $consult = $this->consult;
+        $status = $this->status;
         $tipo_a = $this->tipo_a;
         $medico_id = Medico::select('nome', 'id')->get();
         $paciente_id = Paciente::select('nome', 'id')->get();
         $agenda = Agendamentos::find($id);
 
-        return view('agenda.form', compact('agenda','medico_id','paciente_id','tipo_a','consult'));
+        return view('agenda.form', compact('agenda','medico_id','paciente_id','tipo_a','consult','status'));
     }
 
     public function deletar($id)

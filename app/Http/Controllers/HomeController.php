@@ -17,7 +17,10 @@ class HomeController extends Controller
         $data['pacientes'] = Paciente::get()->count();
         $data['medicos'] = Medico::get()->count();
         $data['usuarios'] = User::get()->count();
-
+        $aser = Agendamentos::where('status','A ser atendido')->count();
+        $cancelados = Agendamentos::where('status','Atendimento cancelado')->count();
+        $finalizado = Agendamentos::where('status','Atendimento finalizado')->count();
+        $proximos = Agendamentos::where('status','A ser atendido')->get();
         $user = User::select('nome', 'id', 'funcao', 'foto')->get();
         if ($pesquisa != '') {
             $agenda = Agendamentos::with('medico', 'pacientes')
@@ -34,6 +37,6 @@ class HomeController extends Controller
             $agenda = Agendamentos::with('medico', 'pacientes')->paginate(5);
         }
 
-        return view('layout.index', compact('data', 'agenda', 'pesquisa', 'user'));
+        return view('layout.index', compact('data', 'agenda', 'pesquisa', 'user','aser','cancelados','finalizado','proximos'));
     }
 }

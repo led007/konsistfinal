@@ -47,7 +47,7 @@
                                             <div class="card-block">
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
-                                                        <h4 class="text-c-green">{{ $data['pacientes'] }}</h4>
+                                                        <h4 class="text-c-green">{{ $finalizado }}</h4>
                                                         <h6 class="text-muted m-b-0">Pacientes finalizados</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
@@ -72,7 +72,7 @@
                                             <div class="card-block">
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
-                                                        <h4 style="color: #ffe100;" >{{ $data['pacientes'] }}</h4>
+                                                        <h4 style="color: #ffe100;" >{{ $aser }}</h4>
                                                         <h6 class="text-muted m-b-0">Pacientes a ser atendido</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
@@ -97,7 +97,7 @@
                                             <div class="card-block">
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
-                                                        <h4 class="text-c-red">{{ $data['pacientes'] }}</h4>
+                                                        <h4 class="text-c-red">{{ $cancelados }}</h4>
                                                         <h6 class="text-muted m-b-0">Atendimento cancelado</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
@@ -176,12 +176,13 @@
                                                                 </div>
                                                                 Selecionar todos
                                                             </th>
+                                                            <th>Hora</th>
                                                             <th>Data</th>
                                                             <th>Consultório</th>
                                                             <th class="text-right">Priority</th>
                                                         </tr>
                                                     </thead>
-                                                    @foreach ($agenda as $item)
+                                                    @foreach ($proximos as $item)
                                                     <tbody>
                                                         <tr>
                                                             <td>
@@ -204,6 +205,7 @@
                                                                 </div>
                                                             </td>
                                                             <td>{{ date( 'd/m' , strtotime($item->data))}}</td>
+                                                            <td>{{ $item->hora }}</td>
                                                             <td align="center">
                                                                 <div class="@if($item->status == 'A ser atendido') bg-warning @elseif($item->status == 'Atendimento finalizado') bg-success @elseif($item->status == 'Atendimento cancelado') bg-danger @endif">
                                                                     {{$item->status}}

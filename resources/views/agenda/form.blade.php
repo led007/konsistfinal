@@ -8,7 +8,7 @@
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Konsist</h5>
+                        <h5 class="m-b-10">PROSA|Agendamentos</h5>
                         <p class="m-b-0">Agenda</p>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label class="form-label">Data</label>
-                                                    <input required  type="date" min="{{ date('Y-m-d') }}" name="data" class="form-control" value="@if(isset($agenda)){{$agenda->data}}@else{{old('data')}}@endif" >
+                                                    <input required  type="date" name="data" class="form-control" value="@if(isset($agenda)){{$agenda->data}}@else{{old('data')}}@endif" >
                                                 </div>
                                             </div>
                                             <div class="col-3">

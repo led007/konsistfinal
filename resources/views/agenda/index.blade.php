@@ -38,7 +38,22 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-md">
-
+                    <div class="form-group">
+                                Nome do Paciente:
+                                <input class="form-control" readonly type="text" value="{{ $item->pacientes->nome}}">
+                            </div>
+                            <div class="form-group">
+                            Médico:
+                                <input class="form-control" readonly type="text" value="{{ $item->medico->nome}}">
+                            </div>
+                            <div class="form-group">
+                                Hora:
+                                <input class="form-control" readonly type="text" value="{{$item->hora}}">
+                            </div>
+                            <div class="form-group">
+                               Data:
+                                <input class="form-control" readonly type="text" value="{{ date( 'd/m' , strtotime($item->data))}}">
+                            </div>
 
                     </div>
                 </div>

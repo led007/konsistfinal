@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2a913f01e98531d866669da41a67827",
+    "content-hash": "3a64a435c9b89e15c9c48ad03602eba1",
     "packages": [
         {
             "name": "acaronlex/laravel-calendar",
@@ -56,6 +56,67 @@
                 "source": "https://github.com/acaronlex/laravel-calendar/tree/1.3"
             },
             "time": "2021-01-18T21:34:10+00:00"
+        },
+        {
+            "name": "asantibanez/laravel-blade-sortable",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asantibanez/laravel-blade-sortable.git",
+                "reference": "b9550761d6da4773eb04b99d337605f6f3384b92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asantibanez/laravel-blade-sortable/zipball/b9550761d6da4773eb04b99d337605f6f3384b92",
+                "reference": "b9550761d6da4773eb04b99d337605f6f3384b92",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.2|^7.3|^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Asantibanez\\LaravelBladeSortable\\LaravelBladeSortableServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelBladeSortable": "Asantibanez\\LaravelBladeSortable\\LaravelBladeSortableFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Asantibanez\\LaravelBladeSortable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrés Santibáñez",
+                    "email": "santibanez.andres@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Custom Blade components to add sortable/drag-and-drop HTML elements in your apps",
+            "homepage": "https://github.com/asantibanez/laravel-blade-sortable",
+            "keywords": [
+                "asantibanez",
+                "laravel-blade-sortable"
+            ],
+            "support": {
+                "issues": "https://github.com/asantibanez/laravel-blade-sortable/issues",
+                "source": "https://github.com/asantibanez/laravel-blade-sortable/tree/v1.3.0"
+            },
+            "time": "2021-04-04T22:44:50+00:00"
         },
         {
             "name": "asm89/stack-cors",

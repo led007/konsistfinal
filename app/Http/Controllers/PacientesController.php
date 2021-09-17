@@ -14,32 +14,31 @@ class PacientesController extends Controller
 {   public $tipo_sexo = ['Masculino', 'Feminino'];
     public $situacao = ['Em tratamento', 'Sem tratamento','Hormonioterapia','Falecido'];
     public $civil = ['Solteiro(a)', 'Casado(a)','Divorciado(a)','Viúvo(a)','União estável'];
+    public $convenio = ['Convênio Particular', 'Outros'];
    
     public function index(Request $request)
     {   $medico_id = Medico::select('nome', 'id')->get();
         $pesquisa = $request->pesquisa;
         if ($pesquisa != '') {
-            $pacientes = Paciente::with('medico')
-            ->where('nome','like', "%".$pesquisa."%")
+            $pacientes = Paciente::
+            where('nome','like', "%".$pesquisa."%")
             ->orWhere('situacao','like', "%".$pesquisa."%")
-            ->orWhereHas('medico', function($query) use ($pesquisa){
-                $query->where('nome','like', "%".$pesquisa."%");
-            })
             ->paginate(10);
         } else {
-            $pacientes = Paciente::with('medico')->paginate(10);
+            $pacientes = Paciente::paginate(10);
         }
        
-        return view('pacientes.index', compact('pacientes', 'pesquisa','medico_id'));
+        return view('pacientes.index', compact('pacientes', 'pesquisa'));
     }
 
     public function novo()
     {   
-        $medico_id = Medico::select('nome', 'id')->get();
+       
         $civil = $this->civil;
         $tipo_sexo = $this->tipo_sexo;
+        $convenio = $this->convenio;
         $situacao = $this->situacao;
-        return view('pacientes.form', compact('tipo_sexo','situacao','civil','medico_id'));
+        return view('pacientes.form', compact('tipo_sexo','situacao','civil','convenio'));
     }
     public function salvar(PacientesRequest $request)
     {
@@ -62,13 +61,14 @@ class PacientesController extends Controller
 
     public function editar($id)
     {   
-        $medico_id = Medico::select('nome', 'id')->get();
+        
         $civil = $this->civil;
         $tipo_sexo = $this->tipo_sexo;
         $situacao = $this->situacao;
+        $convenio = $this->convenio;
         $paciente = Paciente::find($id);
 
-        return view('pacientes.form', compact('paciente','tipo_sexo','situacao','civil','medico_id'));
+        return view('pacientes.form', compact('paciente','tipo_sexo','situacao','civil','convenio'));
     }
 
     public function deletar($id)

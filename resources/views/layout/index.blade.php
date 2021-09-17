@@ -72,7 +72,7 @@
                                             <div class="card-block">
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
-                                                        <h4 style="color: #ffe100;" >{{ $aser }}</h4>
+                                                        <h4 style="color: #ffe100;">{{ $aser }}</h4>
                                                         <h6 class="text-muted m-b-0">Pacientes a ser atendido</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
@@ -178,8 +178,8 @@
                                                             </th>
                                                             <th>Hora</th>
                                                             <th>Data</th>
-                                                            <th>Consultório</th>
-                                                            <th class="text-right">Priority</th>
+                                                            <th>Status</th>
+                                                            <th class="text-right">Ação</th>
                                                         </tr>
                                                     </thead>
                                                     @foreach ($proximos as $item)
@@ -221,6 +221,7 @@
                                                     @endforeach
                                                 </table>
 
+
                                             </div>
                                         </div>
                                     </div>
@@ -232,7 +233,7 @@
                                             <br>
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4>$256.23</h4>
+                                                    <h4>${{$total}}</h4>
                                                     <p class="text-muted">Este mês</p>
                                                 </div>
                                                 <div class="col-auto">

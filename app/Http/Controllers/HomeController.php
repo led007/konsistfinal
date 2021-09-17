@@ -17,11 +17,14 @@ class HomeController extends Controller
         $data['pacientes'] = Paciente::get()->count();
         $data['medicos'] = Medico::get()->count();
         $data['usuarios'] = User::get()->count();
-        $aser = Agendamentos::where('status','A ser atendido')->count();
-        $cancelados = Agendamentos::where('status','Atendimento cancelado')->count();
-        $finalizado = Agendamentos::where('status','Atendimento finalizado')->count();
-        $proximos = Agendamentos::where('status','A ser atendido')->get();
+
+        $aser = Agendamentos::where('status', 'A ser atendido')->count();
+        $cancelados = Agendamentos::where('status', 'Atendimento cancelado')->count();
+        $finalizado = Agendamentos::where('status', 'Atendimento finalizado')->count();
+        $proximos = Agendamentos::where('status', 'A ser atendido')->get();
         $user = User::select('nome', 'id', 'funcao', 'foto')->get();
+        $total = DB::table('agendamentos')->sum('preco');
+
         if ($pesquisa != '') {
             $agenda = Agendamentos::with('medico', 'pacientes')
                 ->where('data', 'like', "%" . $pesquisa . "%")
@@ -37,6 +40,6 @@ class HomeController extends Controller
             $agenda = Agendamentos::with('medico', 'pacientes')->paginate(5);
         }
 
-        return view('layout.index', compact('data', 'agenda', 'pesquisa', 'user','aser','cancelados','finalizado','proximos'));
+        return view('layout.index', compact('data', 'agenda', 'pesquisa', 'user', 'aser', 'cancelados', 'finalizado', 'proximos','total'));
     }
 }

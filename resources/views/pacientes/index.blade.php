@@ -91,7 +91,7 @@
                                                 <tr>
                                                     <td align="center">#</td>
                                                     <td align="center">Paciente</td>
-                                                    <td align="center">Médico</td>
+                                                    <td align="center">Convênio</td>
                                                     <td align="center">Situação</td>
                                                     <td align="center">Ações</td>
                                                 </tr>
@@ -100,7 +100,7 @@
                                             <tbody>
                                                 <td align="center">{{ $item->id }}</td>
                                                 <td align="center">{{ $item->nome }}</td>
-                                                <td align="center">{{$item->medico->nome}}</td>
+                                                <td align="center">{{$item->convenio}}</td>
                                                 <td align="center">{{ $item->situacao }}</td>
                                                 <td align="end">
                                                     <a href="/pacientes/editar/{{ $item->id }}" class="btn btn-info">

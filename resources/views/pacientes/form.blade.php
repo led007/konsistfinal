@@ -102,25 +102,24 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-5">
-                                                <div class="form-group">
-                                                    <label for="medico_id" class="form-label">Médico</label>
-                                                    <select name="medico_id" id="medico_id" class="form-control">
-                                                        <option value="">Selecione um Médico</option>
-                                                        @foreach($medico_id as $item)
-                                                        <option value="{{$item->id}}" @if(isset($paciente) &&$paciente->medico_id == $item->id) selected @elseif(old('medico_id') == $item->id) selected @endif>{{$item->nome}}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
+                                            <div class="col-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Situação</label>
                                                     <select name="situacao" class="form-control" value="@if(isset($paciente)){{$paciente->situacao}}@else{{old('situacao')}}@endif">
                                                         <option value="">Selecione</option>
                                                         @foreach ($situacao as $key => $tipo)
                                                         <option value="{{$tipo}}" @if(isset($paciente) && $paciente->situacao == $tipo) selected @elseif(old('situacao') == $tipo) selected @endif>{{$tipo}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label class="form-label">Convênio</label>
+                                                    <select name="convenio" class="form-control" value="@if(isset($paciente)){{$paciente->convenio}}@else{{old('convenio')}}@endif">
+                                                        <option value="">Selecione</option>
+                                                        @foreach ($convenio as $key => $tipo)
+                                                        <option value="{{$tipo}}" @if(isset($paciente) && $paciente->convenio == $tipo) selected @elseif(old('convenio') == $tipo) selected @endif>{{$tipo}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>

@@ -14,7 +14,6 @@ class Paciente extends Model
         'data_nasc',
         'idade',
         'sexo',
-        'medico_id',
         'situacao',
         'cep',
         'endereco',
@@ -32,11 +31,8 @@ class Paciente extends Model
         'civil',
         'nome_mae',
         'nome_pai',
-        'nome_rep'
+        'nome_rep',
+        'convenio'
     ];
     
-    public function medico()
-    {
-        return $this->hasOne(Medico::class, 'id', 'medico_id');
-    }
 }

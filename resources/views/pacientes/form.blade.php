@@ -57,7 +57,7 @@
                                         <div class="col" align="end">
                                             @isset($paciente->id)
                                             <a href="/pacientes/novo" class="btn btn-primary">
-                                                Novo Usuário
+                                                Novo paciente
                                                 <i class="ti-plus"></i>
                                             </a>
                                             @endisset

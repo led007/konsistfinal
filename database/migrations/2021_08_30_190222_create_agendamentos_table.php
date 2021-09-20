@@ -24,7 +24,7 @@ class CreateAgendamentosTable extends Migration
             $table->time('hora')->nullable();
             $table->enum('consult', ['Consultório 1', 'Consultório 2', 'Consultório 3', 'Consultório 4','Consultório 5']);
             $table->text('observacao')->nullable();
-            $table->text('preco')->nullable();
+            $table->decimal('preco')->nullable();
             $table->enum('status', ['Atendimento finalizado', 'A ser atendido', 'Atendimento cancelado']);
             $table->timestamps();
         });

@@ -23,7 +23,7 @@ class HomeController extends Controller
         $finalizado = Agendamentos::where('status', 'Atendimento finalizado')->count();
         $proximos = Agendamentos::where('status', 'A ser atendido')->get();
         $user = User::select('nome', 'id', 'funcao', 'foto')->get();
-        $total = DB::table('agendamentos')->sum('preco');
+        $total = DB::table('agendamentos')->where('status', 'Atendimento finalizado')->sum('preco');
 
         if ($pesquisa != '') {
             $agenda = Agendamentos::with('medico', 'pacientes')

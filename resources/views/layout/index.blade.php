@@ -56,9 +56,9 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer bg-c-green">
-                                                <a href="/pacientes">
+                                                <a href="/agenda">
                                                     <div class="row align-items-center">
-                                                        <p class="text-white m-b-0">| esta semana</p>
+                                                        <p class="text-white m-b-0">| total</p>
                                                         <div class="col" align="right">
                                                             <i class="fas fa-arrow-circle-right fa-2x"></i>
                                                         </div>
@@ -81,7 +81,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer bg-warning">
-                                                <a href="/pacientes">
+                                                <a href="/agenda">
                                                     <div class="row align-items-center">
                                                         <p class="text-white m-b-0">| total</p>
                                                         <div class="col" align="right">
@@ -106,7 +106,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer bg-c-red">
-                                                <a href="/pacientes">
+                                                <a href="/agenda">
                                                     <div class="row align-items-center">
                                                         <p class="text-white m-b-0">| consultas canceladas</p>
                                                         <div class="col" align="right">
@@ -123,7 +123,7 @@
                                                 <div class="row align-items-center">
                                                     <div class="col-8">
                                                         <h4 class="text-c-blue">{{ $data['medicos'] }}</h4>
-                                                        <h6 class="text-muted m-b-0">Total de Médicos</h6>
+                                                        <h6 class="text-muted m-b-0">Total de Médicos em atividade</h6>
                                                     </div>
                                                     <div class="col-4 text-right">
                                                         <i class="fas fa-user-md fa-2x"></i>
@@ -131,7 +131,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer bg-c-blue">
-                                                <a href="/usuarios">
+                                                <a href="/medicos">
                                                     <div class="row align-items-center">
                                                         <p class="text-white m-b-0">| total</p>
                                                         <div class="col" align="right">

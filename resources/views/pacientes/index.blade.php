@@ -26,8 +26,8 @@
     </div>
 
     <!-- Modal start -->
-    
-    <div class="modal fade modal-icon" id="#" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    @foreach ($pacientes as $item)
+    <div class="modal fade modal-icon" id="modal{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -37,7 +37,30 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+                    <div class="col-md">
+                        <div class="form-group">
+                            Nome do Paciente:
+                            <input class="form-control" readonly type="text" value="{{ $item->nome}}">
+                        </div>
+                        <div class="form-group">
+                            Data de Nascimento:
+                            <input class="form-control" readonly type="text" value="{{ date( 'd/m/y' , strtotime($item->data_nasc))}}">
+                        </div>
+                        <div class="form-group">
+                           Endereço:
+                            <input class="form-control" readonly type="text" value="{{ $item->endereco}}">
+                        </div>
+                        <div class="form-group">
+                           Cidade:
+                            <input class="form-control" readonly type="text" value="{{ $item->cidade}}">
+                        </div>
+                        <div class="form-group">
+                           Bairro:
+                            <input class="form-control" readonly type="text" value="{{ $item->bairro}}">
+                        </div>
+
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -45,7 +68,7 @@
             </div>
         </div>
     </div>
-    
+    @endforeach
     <!-- Modal end -->
 
     <div class="pcoded-inner-content">
@@ -106,7 +129,7 @@
                                                     <a href="/pacientes/editar/{{ $item->id }}" class="btn btn-info">
                                                         <i class="ti-write"></i>
                                                     </a>
-                                                    <button data-target="#" data-toggle="modal" class="btn btn-inverse">
+                                                    <button data-target="#modal{{ $item->id }}" data-toggle="modal" class="btn btn-inverse">
                                                         <i class="ti-eye"></i>
                                                     </button>
                                                     <a href="#" class="btn btn-danger" onclick="deleta('/pacientes/deletar/{{ $item->id }}')">
@@ -115,15 +138,16 @@
 
                                                 </td>
                                             </tbody>
-                                          @endforeach  
-                                        </table>
-                                    </div>
-                                    <div class="row">
+                                            <div class="row">
                                         <div class="col">
                                             {{ $pacientes->links() }}
                                             <br>
                                         </div>
                                     </div>
+                                            @endforeach
+                                        </table>
+                                    </div>
+                                    
 
                                 </div>
                             </div>

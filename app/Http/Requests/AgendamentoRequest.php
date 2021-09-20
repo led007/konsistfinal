@@ -29,7 +29,8 @@ class AgendamentoRequest extends FormRequest
             'tipo_a' => 'required',
             'data' => 'required',
             'hora' => 'required',
-            'preco' => 'required', 
+            'preco' => 'required',
+            'consult' => 'required', 
         ];  
     }
 
@@ -41,7 +42,8 @@ class AgendamentoRequest extends FormRequest
             'tipo_a.required' => 'Selecione o campo tipo',
             'data.required' => 'A data é obrigatória',
             'hora.required' => 'A hora é obrigatória',
-            'preco.required' => 'O preço é obrigatório',     
+            'preco.required' => 'O preço é obrigatório',
+            'consult.required' => 'Selecione um consultório',   
         ];
     }
 }

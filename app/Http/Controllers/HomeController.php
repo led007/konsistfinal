@@ -21,7 +21,7 @@ class HomeController extends Controller
         $aser = Agendamentos::where('status', 'A ser atendido')->count();
         $cancelados = Agendamentos::where('status', 'Atendimento cancelado')->count();
         $finalizado = Agendamentos::where('status', 'Atendimento finalizado')->count();
-        $proximos = Agendamentos::where('status', 'A ser atendido')->get();
+        $proximos = Agendamentos::where('status', 'A ser atendido')->paginate(5);
         $user = User::select('nome', 'id', 'funcao', 'foto')->get();
         $total = DB::table('agendamentos')->where('status', 'Atendimento finalizado')->sum('preco');
 
@@ -35,9 +35,9 @@ class HomeController extends Controller
                 ->orWhereHas('pacientes', function ($query) use ($pesquisa) {
                     $query->where('nome', 'like', "%" . $pesquisa . "%");
                 })
-                ->paginate(5);
+                ->paginate(1);
         } else {
-            $agenda = Agendamentos::with('medico', 'pacientes')->paginate(5);
+            $agenda = Agendamentos::with('medico', 'pacientes')->paginate(1);
         }
 
         return view('layout.index', compact('data', 'agenda', 'pesquisa', 'user', 'aser', 'cancelados', 'finalizado', 'proximos','total'));

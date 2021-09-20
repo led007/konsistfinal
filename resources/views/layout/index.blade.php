@@ -176,8 +176,8 @@
                                                                 </div>
                                                                 Selecionar todos
                                                             </th>
-                                                            <th>Hora</th>
                                                             <th>Data</th>
+                                                            <th>Horário</th>
                                                             <th>Status</th>
                                                             <th class="text-right">Ação</th>
                                                         </tr>
@@ -205,7 +205,7 @@
                                                                 </div>
                                                             </td>
                                                             <td>{{ date( 'd/m' , strtotime($item->data))}}</td>
-                                                            <td>{{ $item->hora }}</td>
+                                                            <td>{{ date( 'h:i' , strtotime($item->hora))}}</td>
                                                             <td align="center">
                                                                 <div class="@if($item->status == 'A ser atendido') bg-warning @elseif($item->status == 'Atendimento finalizado') bg-success @elseif($item->status == 'Atendimento cancelado') bg-danger @endif">
                                                                     {{$item->status}}
@@ -218,10 +218,12 @@
                                                             </td>
                                                         </tr>
                                                     </tbody>
+
                                                     @endforeach
                                                 </table>
-
-
+                                                <div align="right" class="col">
+                                                    {{ $proximos->links() }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

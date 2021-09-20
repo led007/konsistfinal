@@ -47,8 +47,8 @@
                                 <input class="form-control" readonly type="text" value="{{ $item->medico->nome}}">
                             </div>
                             <div class="form-group">
-                                Hora:
-                                <input class="form-control" readonly type="text" value="{{$item->hora}}">
+                                Horário:
+                                <input class="form-control" readonly type="text" value="{{ date( 'h:i' , strtotime($item->hora))}}">
                             </div>
                             <div class="form-group">
                                Data:

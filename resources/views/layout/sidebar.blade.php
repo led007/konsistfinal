@@ -23,7 +23,7 @@
                 </div>
                 <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Home</div>
                 <ul class="pcoded-item pcoded-left-item">
-                    <li class="{{ Request::is('/') ? 'active' : '' }}">
+                    <li class="{{ request()->is('/') ? 'active' : '' }}">
                         <a href="/" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="fas fa-home"></i><b>D</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
@@ -34,7 +34,7 @@
                 </ul>
                 <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Agenda &amp; Tabelas</div>
                 <ul class="pcoded-item pcoded-left-item">
-                    <li class="{{ Request::is('agenda') ? 'active' : '' }}">
+                    <li class="{{ request()->is('agenda*') ? 'active' : '' }}">
                         <a href="/agenda" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="far fa-calendar-alt"></i><b>FC</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Agendamento</span>
@@ -53,21 +53,21 @@
 
                 <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Registros</div>
                 <ul class="pcoded-item pcoded-left-item">
-                <li class="{{ Request::is('pacientes') ? 'active' : '' }}">
+                <li class="{{ request()->is('pacientes*') ? 'active' : '' }}">
                         <a href="/pacientes" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="fas fa-user"></i><b>FC</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Pacientes</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('medicos') ? 'active' : '' }}">
+                    <li class="{{ request()->is('medicos*') ? 'active' : '' }}">
                         <a href="/medicos" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="fas fa-user-md"></i><b>FC</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Médicos</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('usuarios') ? 'active' : '' }}">
+                    <li class="{{ request()->is('usuarios*') ? 'active' : '' }}">
                         <a href="/usuarios" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="fa fa-users"></i><b>FC</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Usuários</span>

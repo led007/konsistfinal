@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>PROSA|Agendamentos</title>
+    <title>PROSA | Agendamentos</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +11,7 @@
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="codedthemes" />
       <!-- Favicon icon -->
-      <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="/assets/images/favicon-prosa.ico" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
     <!-- waves.css -->
@@ -29,7 +29,7 @@
       <!-- scrollbar.css -->
       <link rel="stylesheet" type="text/css" href="/assets/css/jquery.mCustomScrollbar.css">
         <!-- am chart export.css -->
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
      

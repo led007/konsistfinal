@@ -8,7 +8,7 @@
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">PROSA|Agendamentos</h5>
+                        <h5 class="m-b-10">PROSA | Agendamentos</h5>
                         <p class="m-b-0">Gerenciamento de Usuários</p>
                     </div>
                 </div>

@@ -14,12 +14,7 @@
     
     <script src="/assets/js/jquery.mCustomScrollbar.concat.min.js "></script>
     <!-- Chart js -->
-    <script type="text/javascript" src="/assets/js/chart.js/Chart.js"></script>
-    <!-- amchart js -->
-    <script src="/assets/pages/widget/amchart/gauge.js"></script>
-    <script src="/assets/pages/widget/amchart/serial.js"></script>
-    <script src="/assets/pages/widget/amchart/light.js"></script>
-    <script src="/assets/pages/widget/amchart/pie.min.js"></script>
+    
     <!-- menu js -->
     <script src="/assets/js/pcoded.min.js"></script>
     <script src="/assets/js/vertical-layout.min.js "></script>
@@ -171,8 +166,12 @@ function MascaraGenerica(seletor, tipoMascara) {
         }
     }, 200);
 }
+
+
+
+
 </script>
-    
+
 </body>
 
 </html>

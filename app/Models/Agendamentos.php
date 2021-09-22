@@ -14,7 +14,7 @@ class Agendamentos extends Model
         'paciente_id',
         'medico_id',
         'tipo_a',
-        'data',
+        'data_consulta',
         'hora',
         'preco',
         'observacao',

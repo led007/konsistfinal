@@ -48,11 +48,11 @@
                             </div>
                             <div class="form-group">
                                 Horário:
-                                <input class="form-control" readonly type="text" value="{{ date( 'h:i' , strtotime($item->hora))}}">
+                                <input class="form-control" readonly type="text" value="{{ date( 'H:i' , strtotime($item->hora))}}">
                             </div>
                             <div class="form-group">
-                               Data:
-                                <input class="form-control" readonly type="text" value="{{ date( 'd/m' , strtotime($item->data))}}">
+                               Data da consulta:
+                                <input class="form-control" readonly type="text" value="{{ date( 'd/m' , strtotime($item->data_consulta))}}">
                             </div>
 
                     </div>
@@ -109,7 +109,7 @@
                                             <thead>
                                                 <tr>
                                                     <td align="center">#</td>
-                                                    <td align="center">Data</td>
+                                                    <td align="center">Data da consulta</td>
                                                     <td align="center">Paciente</td>
                                                     <td align="center">Médico</td>
                                                     <td align="center">Status</td>
@@ -119,7 +119,7 @@
                                             @foreach ($agenda as $item)
                                             <tbody>
                                                 <td align="center">{{ $item->id }}</td>
-                                                <td align="center">{{ date( 'd/m' , strtotime($item->data))}}</td>
+                                                <td align="center">{{ date( 'd/m' , strtotime($item->data_consulta))}}</td>
                                                 <td align="center">{{ $item->pacientes->nome}}</td>
                                                 <td align="center">{{ $item->medico->nome }}</td>
                                                 <td align="center"><div class="@if($item->status == 'A ser atendido') bg-warning @elseif($item->status == 'Atendimento finalizado') bg-success @elseif($item->status == 'Atendimento cancelado') bg-danger @endif">

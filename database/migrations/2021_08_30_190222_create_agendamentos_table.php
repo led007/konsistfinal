@@ -20,7 +20,7 @@ class CreateAgendamentosTable extends Migration
             $table->unsignedBigInteger('medico_id');
             $table->foreign('medico_id')->references('id')->on('medicos');
             $table->enum('tipo_a', ['Consulta', 'Exame']);
-            $table->string('data');
+            $table->date('data_consulta');
             $table->time('hora')->nullable();
             $table->enum('consult', ['Consultório 1', 'Consultório 2', 'Consultório 3', 'Consultório 4','Consultório 5']);
             $table->text('observacao')->nullable();

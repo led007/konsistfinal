@@ -32,7 +32,7 @@
                     </li>
 
                 </ul>
-                <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Agenda &amp; Tabelas</div>
+                <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Agenda &amp; Laudos</div>
                 <ul class="pcoded-item pcoded-left-item">
                     <li class="{{ request()->is('agenda*') ? 'active' : '' }}">
                         <a href="/agenda" class="waves-effect waves-dark">
@@ -43,8 +43,8 @@
                     </li>
                     <li class="">
                         <a href="bs-basic-table.html" class="waves-effect waves-dark">
-                            <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic Table</span>
+                            <span class="pcoded-micon"><i class="fas fa-file-medical"></i><b>FC</b></span>
+                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Laudos</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>

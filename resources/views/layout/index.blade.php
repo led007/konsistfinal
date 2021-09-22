@@ -204,8 +204,8 @@
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td>{{ date( 'd/m' , strtotime($item->data))}}</td>
-                                                            <td>{{ date( 'h:i' , strtotime($item->hora))}}</td>
+                                                            <td>{{ date( 'd/m' , strtotime($item->data_consulta))}}</td>
+                                                            <td>{{ date( 'H:i' , strtotime($item->hora))}}</td>
                                                             <td align="center">
                                                                 <div class="@if($item->status == 'A ser atendido') bg-warning @elseif($item->status == 'Atendimento finalizado') bg-success @elseif($item->status == 'Atendimento cancelado') bg-danger @endif">
                                                                     {{$item->status}}
@@ -289,9 +289,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
                                 <!-- Page-body end -->
                             </div>
                             <div id="styleSelector"> </div>

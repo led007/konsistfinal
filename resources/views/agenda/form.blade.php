@@ -98,8 +98,8 @@
                                             </div>
                                             <div class="col-3">
                                                 <div class="form-group">
-                                                    <label class="form-label">Data</label>
-                                                    <input required  type="date" name="data" class="form-control" value="@if(isset($agenda)){{$agenda->data}}@else{{old('data')}}@endif" >
+                                                    <label class="form-label">Data da consulta</label>
+                                                    <input required  type="date" name="data_consulta" class="form-control" value="@if(isset($agenda)){{$agenda->data_consulta}}@else{{old('data_consulta')}}@endif" >
                                                 </div>
                                             </div>
                                             <div class="col-3">

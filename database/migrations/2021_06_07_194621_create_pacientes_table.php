@@ -16,7 +16,7 @@ class CreatePacientesTable extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 100);
-            $table->string('data_nasc');
+            $table->date('data_nasc');
             $table->string('idade');
             $table->enum('sexo', ['Masculino', 'Feminino']);
             $table->enum('situacao', ['Em tratamento', 'Sem tratamento','Hormonioterapia','Falecido']);

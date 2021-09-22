@@ -18,6 +18,8 @@ class HomeController extends Controller
         $data['medicos'] = Medico::get()->count();
         $data['usuarios'] = User::get()->count();
 
+        
+
         $aser = Agendamentos::where('status', 'A ser atendido')->count();
         $cancelados = Agendamentos::where('status', 'Atendimento cancelado')->count();
         $finalizado = Agendamentos::where('status', 'Atendimento finalizado')->count();

@@ -1144,7 +1144,7 @@ a.bg-default:hover {
 
 a.bg-primary:focus,
 a.bg-primary:hover {
-  background-color: #77aaff !important;
+  background-color: #88fb0f !important;
   color: #fff; }
 
 a.bg-success:focus,
@@ -8731,8 +8731,8 @@ body.menu-bottom #collapse-menu {
   -webkit-transition: all ease-in 0.3s;
   transition: all ease-in 0.3s; }
   .btn-primary:hover, .sweet-alert button.confirm:hover, .wizard > .actions a:hover {
-    background-color: #77aaff;
-    border-color: #77aaff; }
+    background-color: #88fb0f;
+    border-color: #88fb0f; }
   .btn-primary:active, .sweet-alert button.confirm:active, .wizard > .actions a:active {
     background-color: #0764ff !important;
     border-color: #0764ff;
@@ -8743,7 +8743,7 @@ body.menu-bottom #collapse-menu {
     -webkit-box-shadow: none;
             box-shadow: none;
     color: #fff;
-    background-color: #77aaff; }
+    background-color: #88fb0f; }
   .btn-primary.disabled, .sweet-alert button.disabled.confirm, .wizard > .actions a.disabled {
     background-color: rgba(68, 138, 255, 0.5);
     border-color: rgba(68, 138, 255, 0.5); }
@@ -8968,11 +8968,11 @@ body.menu-bottom #collapse-menu {
       background-position: bottom center; }
 
 .btn-grd-primary {
-  background-image: -webkit-gradient(linear, left top, right top, from(#77aaff), color-stop(51%, #0764ff), to(#77aaff));
-  background-image: linear-gradient(to right, #77aaff 0%, #0764ff 51%, #77aaff 100%); }
+  background-image: -webkit-gradient(linear, left top, right top, from(#88fb0f), color-stop(51%, #0764ff), to(#88fb0f));
+  background-image: linear-gradient(to right, #88fb0f 0%, #0764ff 51%, #88fb0f 100%); }
   .btn-grd-primary.hor-grd {
-    background-image: -webkit-gradient(linear, left bottom, left top, from(#77aaff), color-stop(51%, #0764ff), to(#77aaff));
-    background-image: linear-gradient(to top, #77aaff 0%, #0764ff 51%, #77aaff 100%); }
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#88fb0f), color-stop(51%, #0764ff), to(#88fb0f));
+    background-image: linear-gradient(to top, #88fb0f 0%, #0764ff 51%, #88fb0f 100%); }
 
 .btn-grd-warning {
   background-image: -webkit-gradient(linear, left top, right top, from(#ffe733), color-stop(51%, #c2ab00), to(#ffe733));
@@ -9010,11 +9010,11 @@ body.menu-bottom #collapse-menu {
     background-image: linear-gradient(to top, #08e3ff 0%, #008697 51%, #08e3ff 100%); }
 
 .btn-grd-disabled {
-  background-image: -webkit-gradient(linear, left top, right top, from(#77aaff), color-stop(51%, #0764ff), to(#77aaff));
-  background-image: linear-gradient(to right, #77aaff 0%, #0764ff 51%, #77aaff 100%); }
+  background-image: -webkit-gradient(linear, left top, right top, from(#88fb0f), color-stop(51%, #0764ff), to(#88fb0f));
+  background-image: linear-gradient(to right, #88fb0f 0%, #0764ff 51%, #88fb0f 100%); }
   .btn-grd-disabled.hor-grd {
-    background-image: -webkit-gradient(linear, left bottom, left top, from(#77aaff), color-stop(51%, #0764ff), to(#77aaff));
-    background-image: linear-gradient(to top, #77aaff 0%, #0764ff 51%, #77aaff 100%); }
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#88fb0f), color-stop(51%, #0764ff), to(#88fb0f));
+    background-image: linear-gradient(to top, #88fb0f 0%, #0764ff 51%, #88fb0f 100%); }
 
 /**====== gradient-Buttons css end ======**/
 /**====== matrialized-Buttons css Start ======**/
@@ -9614,11 +9614,11 @@ body.menu-bottom #collapse-menu {
   -webkit-transition: all ease-in 0.3s;
   transition: all ease-in 0.3s; }
   .input-group-button .input-group-addon:hover {
-    background-color: #77aaff;
-    border-color: #77aaff; }
+    background-color: #88fb0f;
+    border-color: #88fb0f; }
     .input-group-button .input-group-addon:hover .btn {
-      background-color: #77aaff;
-      border-color: #77aaff; }
+      background-color: #88fb0f;
+      border-color: #88fb0f; }
 
 .input-group-dropdown [class*=btn-] {
   margin-bottom: 0; }
@@ -10915,7 +10915,7 @@ label.txt-ellipsis {
 .popup-menu {
   padding: 0; }
   .popup-menu .popup-list {
-    background: linear-gradient(45deg, #81cb33, #77aaff);
+    background: linear-gradient(45deg, #81cb33, #88fb0f);
     border-radius: 0; }
     .popup-menu .popup-list > ul > li {
       -webkit-transition: all ease-in .3s;

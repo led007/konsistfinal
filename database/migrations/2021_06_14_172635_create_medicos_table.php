@@ -34,7 +34,7 @@ class CreateMedicosTable extends Migration
             'OUT|Outros Conselhos'
             ]);
             $table->string('uf_conselho');
-            $table->string('data_nasc');
+            $table->date('data_nasc');
             $table->string('cep', 9)->nullable();
             $table->string('endereco', 150)->nullable();
             $table->string('bairro', 70)->nullable();

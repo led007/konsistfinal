@@ -244,7 +244,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4>$158.00</h4>
+                                                    <h4>$0</h4>
                                                     <p class="text-muted">Mês passado</p>
                                                 </div>
                                                 <div class="col-auto">
@@ -253,7 +253,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4>$526.97</h4>
+                                                    <h4>$0</h4>
                                                     <p class="text-muted">Mês retrasado</p>
                                                 </div>
                                                 <div class="col-auto">

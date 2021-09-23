@@ -47,15 +47,15 @@
                             <input class="form-control" readonly type="text" value="{{ date( 'd/m/y' , strtotime($item->data_nasc))}}">
                         </div>
                         <div class="form-group">
-                           Endereço:
+                            Endereço:
                             <input class="form-control" readonly type="text" value="{{ $item->endereco}}">
                         </div>
                         <div class="form-group">
-                           Cidade:
+                            Cidade:
                             <input class="form-control" readonly type="text" value="{{ $item->cidade}}">
                         </div>
                         <div class="form-group">
-                           Bairro:
+                            Bairro:
                             <input class="form-control" readonly type="text" value="{{ $item->bairro}}">
                         </div>
 
@@ -139,26 +139,31 @@
                                                 </td>
                                             </tbody>
                                             <div class="row">
-                                        <div class="col">
-                                            {{ $pacientes->links() }}
-                                            <br>
-                                        </div>
-                                    </div>
+                                                <div class="col">
+                                                    {{ $pacientes->links() }}
+                                                    <br>
+                                                </div>
+                                            </div>
                                             @endforeach
                                         </table>
+                                        @if(count($pacientes) < 1) 
+                                        <div class="alert alert-info" style="margin-left: 61px; margin-right: 61px;">
+                                        Nenhum registro encontrado!
                                     </div>
-                                    
-
+                                    @endif
                                 </div>
+
+
                             </div>
-                            <!-- Page-body end -->
                         </div>
-                        <div id="styleSelector"> </div>
+                        <!-- Page-body end -->
                     </div>
+                    <div id="styleSelector"> </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 

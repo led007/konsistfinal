@@ -53,7 +53,7 @@
 
                 <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Registros</div>
                 <ul class="pcoded-item pcoded-left-item">
-                <li class="{{ request()->is('pacientes*') ? 'active' : '' }}">
+                    <li class="{{ request()->is('pacientes*') ? 'active' : '' }}">
                         <a href="/pacientes" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="fas fa-user"></i><b>FC</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Pacientes</span>
@@ -67,6 +67,7 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+                   
                     <li class="{{ request()->is('usuarios*') ? 'active' : '' }}">
                         <a href="/usuarios" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="fa fa-users"></i><b>FC</b></span>
@@ -74,6 +75,7 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+                   
                 </ul>
 
 

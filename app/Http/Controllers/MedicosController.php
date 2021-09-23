@@ -39,8 +39,8 @@ class MedicosController extends Controller
         if ($pesquisa != '') {
             $medicos =  $medicos = Medico::with('especialidades')
                             ->where('nome', 'like', "%".$pesquisa."%")
-                            ->orWhere('medico','like', "%".$pesquisa."%")
-            ->paginate(7);
+                           
+            ->paginate(10);
         } else {
             $medicos = Medico::with('especialidades')->paginate(10);
         }

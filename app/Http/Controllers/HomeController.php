@@ -19,6 +19,7 @@ class HomeController extends Controller
         $data['usuarios'] = User::get()->count();
 
         
+        $admin = User::where('funcao', 'Admin')->get();
 
         $aser = Agendamentos::where('status', 'A ser atendido')->count();
         $cancelados = Agendamentos::where('status', 'Atendimento cancelado')->count();

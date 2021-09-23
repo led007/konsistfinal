@@ -17,8 +17,10 @@ class UserSeeder extends Seeder
         User::create([
             'nome' => 'Administrador',
             'email' => 'admin@prosa.com',
-            'senha' => bcrypt('prosa123'),
-            'funcao' =>  'admin'
+            'password' => bcrypt('prosanucleo'),
+            'funcao'=> 'admin',
+            'foto' => '/assets/images/admin.png',
+
         ]);
     }
 }

@@ -5,18 +5,18 @@
             <div class="pcoded-inner-navbar main-menu">
                 <div class="">
                     <div class="main-menu-header">
-                        <img class="img-80 img-radius" src="/assets/images/prosap.png" alt="User-Profile-Image">
+                        <img class="img-80 img-radius" src='{{ \Auth::user()->foto }}' alt="User-Profile-Image">
                         <div class="user-details">
-                            <span id="more-details">John Doe<i class="fa fa-caret-down"></i></span>
+                            <span id="more-details"> {{ \Auth::user()->nome }}<i class="fa fa-caret-down"></i></span>
                         </div>
                     </div>
 
                     <div class="main-menu-content">
                         <ul>
                             <li class="more-details">
-                                <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
-                                <a href="#!"><i class="ti-settings"></i>Settings</a>
-                                <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                <a href="/usuarios"><i class="fas fa-user"></i>Meu Perfil</a>
+                                <a href="#!"><i class="fas fa-cog"></i>Configurações</a>
+                                <a href="/logout"><i class="fas fa-sign-out-alt"></i>Sair</a>
                             </li>
                         </ul>
                     </div>
@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a href="bs-basic-table.html" class="waves-effect waves-dark">
+                        <a href="/auth" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="fas fa-file-medical"></i><b>FC</b></span>
                             <span class="pcoded-mtext" data-i18n="nav.form-components.main">Laudos</span>
                             <span class="pcoded-mcaret"></span>

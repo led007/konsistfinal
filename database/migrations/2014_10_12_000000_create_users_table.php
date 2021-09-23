@@ -17,8 +17,8 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('email');
-            $table->string('senha');
-            $table->enum('funcao', ['Admin', 'Membro', 'Usuário']);
+            $table->string('password');
+            $table->enum('funcao', ['Admin', 'Membro', 'Usuário'])->nullable();
             $table->text('foto')->nullable();
             $table->rememberToken();
             $table->timestamps();

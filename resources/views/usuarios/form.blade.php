@@ -85,15 +85,17 @@
                                             </div>
                                         </div>
                                         <div class="row">
+                                           
                                             <div class="col-6">
                                                 <div class="form-group form-default">
                                                     <label class="float-label">Senha</label>
-                                                    <input type="password" name="senha" class="form-control"  value="">
+                                                    <input type="password" name="password" class="form-control" value="">
                                                 </div>
                                             </div>
+                                            
                                             <div class="col-6">
                                                 <div class="form-group form-default">
-                                                <label class="float-label">Função</label>
+                                                    <label class="float-label">Função</label>
                                                     <select name="funcao" id="funcao" class="form-control" value="@if(isset($usuario)){{$usuario->funcao}}@else{{old('funcao')}}@endif">
                                                         <option value="">Selecione uma Função</option>
                                                         @foreach ($tipo_funcao as $key => $tipo)
@@ -103,7 +105,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            
+
                                                 <div class="col">
                                                     <label class="col-sm-5 col-form-label" for="foto">Carregar Foto:</label>
                                                     <div style="margin: 15px;">

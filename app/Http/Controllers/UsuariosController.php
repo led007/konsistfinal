@@ -33,12 +33,12 @@ class UsuariosController extends Controller
         $tipo_funcao = $this->tipo_funcao;
         return view('usuarios.form', compact('tipo_funcao'));
     }
-    public function salvar(UserRequest $request)
+    public function salvar(Request $request)
     {
-        if($request->senha != '' ){
-            $request['senha'] = bcrypt($request['senha']);
+        if($request->password != '' ){
+            $request['password'] = bcrypt($request['password']);
         }else{
-            unset($request['senha']);
+            unset($request['password']);
         }
         if ($request->hasFile('foto_temp')) {
 

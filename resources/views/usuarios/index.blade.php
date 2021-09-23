@@ -121,7 +121,9 @@
                                             <tbody>
                                                 <td align="center">{{ $item->id }}</td>
                                                 <td align="center">{{ $item->nome }}</td>
-                                                <td align="center">{{ $item->funcao}}</td>
+                                                <td align="center"><div class="@if($item->funcao == 'Admin') bg-danger @elseif($item->funcao == 'Membro') bg-success @elseif($item->funcao == 'Usuário') bg-info @endif">
+                                                {{$item->funcao}}
+                                                </div></td>
                                                 <td align="center">{{ $item->email }}</td>
                                                 <td align="end">
                                                     <a href="/usuarios/editar/{{ $item->id }}" class="btn btn-info">

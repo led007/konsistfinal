@@ -6,11 +6,19 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\PacientesController;
 use App\Http\Controllers\MedicosController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\AuthController;
 
 
 
-Route::get('/', [HomeController::class, 'index']);
 
+
+//Auth::routes();
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/logar', [AuthController::class, 'logar'])->name('logar');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::middleware(['auth'])->group(function () { 
 
 Route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios');
 Route::get('/usuarios/novo', [UsuariosController::class, 'novo'])->name('usuarios.novo');
@@ -39,3 +47,5 @@ Route::get('/agenda/editar/{id}', [AgendaController::class, 'editar'])->name('ag
 Route::get('/agenda/deletar/{id}', [AgendaController::class, 'deletar'])->name('agenda.deletar');
 
 
+Route::get('/', [HomeController::class, 'index']);
+});

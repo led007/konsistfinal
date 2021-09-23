@@ -10,7 +10,7 @@
                 <form class="md-float-material form-material" action="/logar" method="post">
                     @csrf
                     <div class="text-center">
-                        <img src="assets/images/login.png" alt="logo.png">
+                        <img src="assets/images/login2.png" alt="logo.png">
                     </div>
                     <div class="auth-box card">
                         <div class="card-block">

@@ -7,6 +7,7 @@ use App\Http\Controllers\PacientesController;
 use App\Http\Controllers\MedicosController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FuncionariosController;
 
 
 
@@ -45,6 +46,12 @@ Route::get('/agenda/novo', [AgendaController::class, 'novo'])->name('agenda.novo
 Route::post('/agenda/salvar', [AgendaController::class, 'salvar'])->name('agenda.salvar');
 Route::get('/agenda/editar/{id}', [AgendaController::class, 'editar'])->name('agenda.editar');
 Route::get('/agenda/deletar/{id}', [AgendaController::class, 'deletar'])->name('agenda.deletar');
+
+Route::get('/funcionarios', [FuncionariosController::class, 'index'])->name('funcionarios');
+Route::get('/funcionarios/novo', [FuncionariosController::class, 'novo'])->name('funcionarios.novo');
+Route::post('/funcionarios/salvar', [FuncionariosController::class, 'salvar'])->name('funcionarios.salvar');
+Route::get('/funcionarios/editar/{id}', [FuncionariosController::class, 'editar'])->name('funcionarios.editar');
+Route::get('/funcionarios/deletar/{id}', [FuncionariosController::class, 'deletar'])->name('funcionarios.deletar');
 
 
 Route::get('/', [HomeController::class, 'index']);

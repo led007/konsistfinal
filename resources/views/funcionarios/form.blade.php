@@ -9,7 +9,7 @@
                 <div class="col-md-8">
                     <div class="page-header-title">
                         <h5 class="m-b-10">PROSA | Agendamentos</h5>
-                        <p class="m-b-0">Gerenciamento de Médicos</p>
+                        <p class="m-b-0">Gerenciamento de Funcionários</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -17,17 +17,15 @@
                         <li class="breadcrumb-item">
                             <a href="/"> <i class="fa fa-home"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="/medico">Médicos</a>
+                        <li class="breadcrumb-item"><a href="/funcionarios">Funcionários</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">{{ isset($medico) ? 'Editar' : 'Novo' }} Médico</a>
+                        <li class="breadcrumb-item"><a href="#">{{ isset($funcionario) ? 'Editar' : 'Novo' }} Funcionário</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal -->
-
     <div class="pcoded-inner-content">
         <!-- Main-body start -->
         <div class="main-body">
@@ -37,7 +35,17 @@
                     <div class="row">
                         <!-- task, page, download counter  start -->
                         <div class="container">
-                            <a href="/medicos" class="btn btn-secondary">
+                            <!-- @if($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            @foreach($errors->all() as $error)
+                            {{ $error }}<br />
+                            @endforeach
+                        </div>
+                        @endif -->
+                            <a href="/funcionarios" class="btn btn-secondary">
                                 Voltar
                                 <i class="ti-arrow-left"></i>
                             </a>
@@ -45,11 +53,11 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="row">
-                                        <h2><i class="fa fa-user" style="margin: 10px;"></i> {{ isset($medico) ? 'Editar' : 'Novo' }} Médico</h2>
+                                        <h2><i class="fas fa-user-tie" style="margin: 10px;"></i> {{ isset($funcionario) ? 'Editar' : 'Novo' }} Funcionário</h2>
                                         <div class="col" align="end">
-                                            @isset($medico->id)
-                                            <a href="/medicos/novo" class="btn btn-primary">
-                                                Novo Médico
+                                            @isset($funcionario->id)
+                                            <a href="/funcionarios/novo" class="btn btn-primary">
+                                                Novo Funcionário
                                                 <i class="ti-plus"></i>
                                             </a>
                                             @endisset
@@ -59,77 +67,79 @@
                                     <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
                                 </div>
                                 <div class="card-block">
-                                    <form action="/medicos/salvar" method="POST">
+                                    <form action="/funcionarios/salvar" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" name="id" value="@isset($medico){{$medico->id}}@endisset">
+                                        <input type="hidden" name="id" value="@isset($funcionario){{$funcionario->id}}@endisset">
                                         <div class="row">
-                                            <div class="col-5">
+                                            <div class="col-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Nome do Profissional</label>
-                                                    <input type="text" name="nome" class="form-control" required value="@if(isset($medico)){{$medico->nome}}@else{{old('nome')}}@endif">
+                                                    <label class="form-label">Nome</label>
+                                                    <input type="text" name="nome" class="form-control" required value="@if(isset($funcionario)){{$funcionario->nome}}@else{{old('nome')}}@endif">
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Data de nascimento</label>
-                                                    <input type="date" name="data_nasc" class="form-control" required value="@if(isset($medico)){{$medico->data_nasc}}@else{{old('data_nasc')}}@endif">
+                                                    <input type="date" name="data_nasc" class="form-control" required value="@if(isset($funcionario)){{$funcionario->data_nasc}}@else{{old('data_nasc')}}@endif">
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-group">
-                                                    <label class="form-label">Titulo</label>
-                                                    <select name="titulo" class="form-control" value="@if(isset($medico)){{$medico->titulo}}@else{{old('titulo')}}@endif">
-                                                        <option value="">Selecione</option>
-                                                        @foreach ($titulo as $key => $tipo)
-                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->titulo == $tipo) selected @elseif(old('titulo') == $tipo) selected @endif>{{$tipo}}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <label class="form-label">Idade</label>
+                                                    <input type="number" name="idade" class="form-control" value="@if(isset($funcionario)){{$funcionario->idade}}@else{{old('idade')}}@endif">
                                                 </div>
                                             </div>
-                                            <div class="col-2">
-                                                <div class="form-group">
-                                                    <label class="form-label">Status</label>
-                                                    <select required name="status" class="form-control" value="@if(isset($medico)){{$medico->status}}@else{{old('status')}}@endif">
-                                                        <option value="">Selecione</option>
-                                                        @foreach ($status as $key => $tipo)
-                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->status == $tipo) selected @elseif(old('status') == $tipo) selected @endif>{{$tipo}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-
                                         </div>
                                         <div class="row">
-                                            <div class="col-3">
+                                            <div class="col-4">
                                                 <div class="form-group">
-                                                    <label class="form-label">Tipo</label>
-                                                    <select required name="tipo_p" class="form-control" value="@if(isset($medico)){{$medico->tipo_p}}@else{{old('tipo_p')}}@endif">
+                                                    <label class="form-label">Sexo</label>
+                                                    <select name="sexo" class="form-control" value="@if(isset($funcionario)){{$funcionario->sexo}}@else{{old('sexo')}}@endif">
                                                         <option value="">Selecione</option>
-                                                        @foreach ($tipo_p as $key => $tipo)
-                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->tipo_p == $tipo) selected @elseif(old('tipo_p') == $tipo) selected @endif>{{$tipo}}</option>
+                                                        @foreach ($tipo_sexo as $key => $tipo)
+                                                        <option value="{{$tipo}}" @if(isset($funcionario) && $funcionario->sexo == $tipo) selected @elseif(old('sexo') == $tipo) selected @endif>{{$tipo}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-2">
+                                            <div class="col-4">
                                                 <div class="form-group">
-                                                    <label class="form-label">UF Conselho</label>
-                                                    <input type="text" name="uf_conselho" class="form-control" required value="@if(isset($medico)){{$medico->uf_conselho}}@else{{old('uf_conselho')}}@endif">
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <div class="form-group">
-                                                    <label class="form-label">N° do Conselho</label>
-                                                    <input type="text" name="n_conselho" class="form-control" required value="@if(isset($medico)){{$medico->n_conselho}}@else{{old('n_conselho')}}@endif">
-                                                </div>
-                                            </div>
-                                            <div class="col-5">
-                                                <div class="form-group">
-                                                    <label class="form-label">Conselho</label>
-                                                    <select required name="conselho" class="form-control" value="@if(isset($medico)){{$medico->conselho}}@else{{old('conselho')}}@endif">
+                                                    <label class="form-label">Escolaridade</label>
+                                                    <select name="escolaridade" class="form-control" value="@if(isset($funcionario)){{$funcionario->escolaridade}}@else{{old('escolaridade')}}@endif">
                                                         <option value="">Selecione</option>
-                                                        @foreach ($conselho as $key => $tipo)
-                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->conselho == $tipo) selected @elseif(old('conselho') == $tipo) selected @endif>{{$tipo}}</option>
+                                                        @foreach ($escolaridade as $key => $tipo)
+                                                        <option value="{{$tipo}}" @if(isset($funcionario) && $funcionario->escolaridade == $tipo) selected @elseif(old('escolaridade') == $tipo) selected @endif>{{$tipo}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label class="form-label">Cargo</label>
+                                                    <input type="text" name="cargo" class="form-control" required value="@if(isset($funcionario)){{$funcionario->cargo}}@else{{old('cargo')}}@endif">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label class="form-label">Data de admissão</label>
+                                                    <input type="date" name="data_admiss" class="form-control" required value="@if(isset($funcionario)){{$funcionario->data_admiss}}@else{{old('data_admiss')}}@endif">
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label class="form-label">Data de demissão</label>
+                                                    <input type="date" name="data_demiss" class="form-control" required value="@if(isset($funcionario)){{$funcionario->data_demiss}}@else{{old('data_demiss')}}@endif">
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label class="form-label">Status</label>
+                                                    <select required name="status" class="form-control" value="@if(isset($funcionario)){{$funcionario->status}}@else{{old('status')}}@endif">
+                                                        <option value="">Selecione</option>
+                                                        @foreach ($status as $key => $tipo)
+                                                        <option value="{{$tipo}}" @if(isset($funcionario) && $funcionario->status == $tipo) selected @elseif(old('status') == $tipo) selected @endif>{{$tipo}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -143,7 +153,7 @@
                                                         <div class="slide"></div>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#2" role="tab">Especialidade/Corpo Clínico</a>
+                                                        <a class="nav-link" data-toggle="tab" href="#foto" role="tab">Responsabilidades /Foto 3x4</a>
                                                         <div class="slide"></div>
                                                     </li>
                                                 </ul>
@@ -154,30 +164,25 @@
                                                             <div class="col-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">RG</label>
-                                                                    <input type="text" name="rg" class="form-control" value="@if(isset($medico)){{$medico->rg}}@else{{old('rg')}}@endif" onKeyPress="MascaraGenerica(this, 'RG');">
+                                                                    <input type="text" name="rg" class="form-control" value="@if(isset($funcionario)){{$funcionario->rg}}@else{{old('rg')}}@endif" onKeyPress="MascaraGenerica(this, 'RG');">
                                                                 </div>
                                                             </div>
                                                             <div class="col-2">
                                                                 <div class="form-group">
                                                                     <label class="form-label">Orgão emissor</label>
-                                                                    <input type="text" name="emissor" class="form-control" value="@if(isset($medico)){{$medico->emissor}}@else{{old('emissor')}}@endif">
+                                                                    <input type="text" name="emissor" class="form-control" value="@if(isset($funcionario)){{$funcionario->emissor}}@else{{old('emissor')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">CPF</label>
-                                                                    <input type="text" name="cpf" class="form-control" value="@if(isset($medico)){{$medico->cpf}}@else{{old('cpf')}}@endif" onKeyPress="MascaraGenerica(this, 'CPF');">
+                                                                    <input type="text" name="cpf" class="form-control" value="@if(isset($funcionario)){{$funcionario->cpf}}@else{{old('cpf')}}@endif" onKeyPress="MascaraGenerica(this, 'CPF');">
                                                                 </div>
                                                             </div>
                                                             <div class="col-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">Sexo</label>
-                                                                    <select name="sexo" class="form-control" value="@if(isset($medico)){{$medico->sexo}}@else{{old('sexo')}}@endif">
-                                                                        <option value="">Selecione</option>
-                                                                        @foreach ($tipo_sexo as $key => $tipo)
-                                                                        <option value="{{$tipo}}" @if(isset($medico) && $medico->sexo == $tipo) selected @elseif(old('sexo') == $tipo) selected @endif>{{$tipo}}</option>
-                                                                        @endforeach
-                                                                    </select>
+                                                                    <label class="form-label">Telefone</label>
+                                                                    <input type="text" name="telefone" class="form-control" required value="@if(isset($funcionario)){{$funcionario->telefone}}@else{{old('telefone')}}@endif" onKeyPress="MascaraGenerica(this, 'TELEFONE');">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -185,19 +190,19 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label class="form-label">Endereço</label>
-                                                                    <input id="rua" type="text" name="endereco" class="form-control" required value="@if(isset($medico)){{$medico->endereco}}@else{{old('endereco')}}@endif">
+                                                                    <input id="rua" type="text" name="endereco" class="form-control" required value="@if(isset($funcionario)){{$funcionario->endereco}}@else{{old('endereco')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
                                                                 <div class="form-group floating-label">
                                                                     <label class="">Cidade</label>
-                                                                    <input id="cidade" type="text" name="cidade" class="form-control floating-input" value="@if(isset($medico)){{$medico->cidade}}@else{{old('cidade')}}@endif">
+                                                                    <input id="cidade" type="text" name="cidade" class="form-control floating-input" value="@if(isset($funcionario)){{$funcionario->cidade}}@else{{old('cidade')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">Bairro</label>
-                                                                    <input id="bairro" type="text" name="bairro" class="form-control" value="@if(isset($medico)){{$medico->bairro}}@else{{old('bairro')}}@endif">
+                                                                    <input id="bairro" type="text" name="bairro" class="form-control" value="@if(isset($funcionario)){{$funcionario->bairro}}@else{{old('bairro')}}@endif">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -205,96 +210,70 @@
                                                             <div class="col-5">
                                                                 <div class="form-group">
                                                                     <label class="form-label">Complemento</label>
-                                                                    <input type="text" name="complemento" class="form-control" value="@if(isset($medico)){{$medico->complemento}}@else{{old('complemento')}}@endif">
+                                                                    <input type="text" name="complemento" class="form-control" value="@if(isset($funcionario)){{$funcionario->complemento}}@else{{old('complemento')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-2">
                                                                 <div class="form-group">
                                                                     <label class="form-label">Número</label>
-                                                                    <input type="number" name="numero" class="form-control" value="@if(isset($medico)){{$medico->numero}}@else{{old('numero')}}@endif">
+                                                                    <input type="number" name="numero" class="form-control" value="@if(isset($funcionario)){{$funcionario->numero}}@else{{old('numero')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-2">
                                                                 <div class="form-group">
                                                                     <label class="form-label">UF</label>
-                                                                    <input id="uf" type="text" name="uf" class="form-control" value="@if(isset($medico)){{$medico->uf}}@else{{old('uf')}}@endif">
+                                                                    <input id="uf" type="text" name="uf" class="form-control" value="@if(isset($funcionario)){{$funcionario->uf}}@else{{old('uf')}}@endif">
                                                                 </div>
                                                             </div>
                                                             <div class="col-3">
                                                                 <div class="form-group">
                                                                     <label class="form-label">CEP</label>
-                                                                    <input id="cep" type="text" name="cep" class="form-control" required value="@if(isset($medico)){{$medico->cep}}@else{{old('cep')}}@endif" onKeyPress="MascaraGenerica(this, 'CEP');">
+                                                                    <input id="cep" type="text" name="cep" class="form-control" required value="@if(isset($funcionario)){{$funcionario->cep}}@else{{old('cep')}}@endif" onKeyPress="MascaraGenerica(this, 'CEP');">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-4">
-                                                                <div class="form-group">
-                                                                    <label class="form-label">Telefone</label>
-                                                                    <input type="text" name="telefone" class="form-control" required value="@if(isset($medico)){{$medico->telefone}}@else{{old('telefone')}}@endif" onKeyPress="MascaraGenerica(this, 'TELEFONE');">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-8">
+                                                            <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label class="form-label">E-mail</label>
-                                                                    <input type="text" name="email" class="form-control" required value="@if(isset($medico)){{$medico->email}}@else{{old('email')}}@endif">
+                                                                    <input type="text" name="email" class="form-control" required value="@if(isset($funcionario)){{$funcionario->email}}@else{{old('email')}}@endif">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tab-pane" id="2" role="tabpanel">
+                                                    <div class="tab-pane" id="foto" role="tabpanel">
                                                         <div class="row">
                                                             <div class="col-lg-10">
-                                                                @if(isset($medico) && count($medico->especialidades) > 0)
-                                                                @foreach ($medico->especialidades as $item)
-                                                                <div id="inputFormRow">
-                                                                    <div class="input-group mb-3">
-                                                                        <input type="text" name="especialidades[]" class="form-control m-input" placeholder="Adicionar especialidade" autocomplete="off" value="{{ $item->nome }}">
-                                                                        <div class="input-group-append">
-                                                                            <button id="removeRow" type="button" class="btn btn-danger">
-                                                                                <i class="fas fa-trash"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="">
+                                                                    <label for="foto" class="form-label">Foto 3x4</label>
+                                                                    <input type="file" name="foto_temp" class="form-control" value="@if(isset($funcionario)){{$funcionario->foto}}@else{{old('foto')}} @endif">
                                                                 </div>
-                                                                @endforeach
-                                                                @else
-                                                                <div id="inputFormRow">
-                                                                    <div class="input-group mb-3">
-                                                                        <input type="text" name="especialidades[]" class="form-control m-input" placeholder="Adicionar especialidade" autocomplete="off">
-                                                                        <div class="input-group-append">
-                                                                            <button id="removeRow" type="button" class="btn btn-danger">
-                                                                                <i class="fas fa-trash"></i>
-
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                @endif
-
-                                                                <div id="newRow"></div>
-                                                                <button id="addRow" type="button" class="btn btn-info">
-                                                                    <i class="fas fa-plus"></i>
-                                                                    Adicionar
-                                                                </button>
                                                             </div>
-
+                                                        </div>
+                                                        <br>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label>Responsabilidades:</label>
+                                                                    <textarea style="height: 140px;" class="form-control" name="responsabilidades" id="responsabilidades" rows="3">@if(isset($funcionario)){{$funcionario->responsabilidades}}@else{{ old('responsabilidades')}}@endif</textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="card" style="width: 7rem;">
+                                                                    @if(isset($funcionario) && $funcionario->foto != '')
+                                                                    <img class="card-img-top" src="{{ $funcionario->foto }}" alt="Imagem de capa do card">
+                                                                    <div class="card-body">
+                                                                        <p class="card-text">{{$funcionario->nome}}</p>
+                                                                    </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <br>
 
                                                     </div>
 
                                                     <div class="row">
-                                                        <br>
-                                                        <div class="col-3" align="home">
-                                                            @isset($medico->id)
-                                                            <a href="/medicos/gerar_pdf/{{ $medico->id }}" class="btn btn-danger" target="_blank">
-                                                                Gerar PDF
-                                                                <i class="fas fa-file-pdf"></i>
-                                                            </a>
-                                                            @endisset
-                                                        </div>
-                                                        <br>
                                                         <div class="col" align="end">
                                                             <button type="submit" class="btn btn-success w-25 hover-shadow">
                                                                 Salvar
@@ -320,8 +299,6 @@
 </div>
 </div>
 </div>
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
@@ -393,25 +370,6 @@
                 limpa_formulário_cep();
             }
         });
-    });
-</script>
-
-<script type="text/javascript">
-    // add row
-    $("#addRow").click(function() {
-        var html = '';
-        html += '<div id="inputFormRow">';
-        html += '<div class="input-group mb-3">';
-        html += '<input type="text" name="especialidades[]" class="form-control m-input" placeholder="Adicionar especialidade" autocomplete="off">';
-        html += '<div class="input-group-append">';
-        html += '<button id="removeRow" type="button" class="btn btn-danger"> <i class="fas fa-trash"></i></button>';
-        html += '</div>';
-        html += '</div>';
-        $('#newRow').append(html);
-    });
-    // remove row
-    $(document).on('click', '#removeRow', function() {
-        $(this).closest('#inputFormRow').remove();
     });
 </script>
 @include('layout.footer')

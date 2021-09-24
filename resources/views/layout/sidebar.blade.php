@@ -67,6 +67,13 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+                    <li class="{{ request()->is('funcionarios*') ? 'active' : '' }}">
+                        <a href="/funcionarios" class="waves-effect waves-dark">
+                            <span class="pcoded-micon"><i class="fas fa-user-tie"></i><b>FC</b></span>
+                            <span class="pcoded-mtext" data-i18n="nav.form-components.main">Funcionários</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
                    
                     <li class="{{ request()->is('usuarios*') ? 'active' : '' }}">
                         <a href="/usuarios" class="waves-effect waves-dark">

@@ -49,9 +49,7 @@ class FuncionariosRequest extends FormRequest
             'cep.required' => 'O CEP é obrigatório',
             'telefone.required' => 'O telefone é obrigatório',
             'cargo.required' => 'O cargo é obrigatório',
-            'data_admiss.required' => 'A data de admissão é obrigatória',
-            
-            
+            'data_admiss.required' => 'A data de admissão é obrigatória',         
         ];
     }
 }

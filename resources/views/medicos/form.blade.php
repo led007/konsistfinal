@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item">
                             <a href="/"> <i class="fa fa-home"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="/medico">Médicos</a>
+                        <li class="breadcrumb-item"><a href="/medicos">Médicos</a>
                         </li>
                         <li class="breadcrumb-item"><a href="#">{{ isset($medico) ? 'Editar' : 'Novo' }} Médico</a>
                         </li>

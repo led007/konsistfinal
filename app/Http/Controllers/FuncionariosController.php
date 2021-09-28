@@ -19,7 +19,8 @@ class FuncionariosController extends Controller
         $pesquisa = $request->pesquisa;
         if ($pesquisa != '') {
             $funcionarios = Funcionario::where('nome', 'like', "%" . $pesquisa . "%")
-                ->orWhere('situacao', 'like', "%" . $pesquisa . "%")
+                ->orWhere('cargo', 'like', "%" . $pesquisa . "%")
+                ->orWhere('escolaridade', 'like', "%" . $pesquisa . "%")
                 ->paginate(10);
         } else {
             $funcionarios = Funcionario::paginate(10);
@@ -33,32 +34,32 @@ class FuncionariosController extends Controller
         $tipo_sexo = $this->tipo_sexo;
         $status = $this->status;
         $escolaridade = $this->escolaridade;
-        return view('funcionarios.form', compact('tipo_sexo', 'escolaridade','status'));
+        return view('funcionarios.form', compact('tipo_sexo', 'escolaridade', 'status'));
     }
-    public function salvar(Request $request)
+    public function salvar(FuncionariosRequest $request)
     {
-        if ($request->id != '') {
+        if ($request->hasFile('foto_temp')){
+            //echo 'tem documento';
+            // renomeando documento 
+            $nome_documento = date('YmdHmi') . '.' . $request->foto_temp->getClientOriginalExtension();
+
+            $request['foto'] = '/uploads/funcionarios/' . $nome_documento;
+
+            $request->foto_temp->move(public_path('/uploads/funcionarios/'), $nome_documento);
+        }
+        
+        if ($request->id != ''){
             $funcionarios = Funcionario::find($request->id);
             $funcionarios->update($request->all());
-        } else {
+        } else{
             $funcionarios = Funcionario::create($request->all());
         }
-        if($request->hasFile('foto')) {
-                    //echo 'tem documento';
-                     // renomeando documento 
-                    $nome_documento = date('YmdHmi').'.'.$request->foto->getClientOriginalExtension();
-        
-                   $request['foto'] = '/public/uploads/funcionarios' . $nome_documento;
-        
-                    $request->foto->move(public_path('/public/uploads/funcionarios'), $nome_documento);
-                }
 
-        $validator = Validator::make($request->all(), []);
-        if ($validator->fails()) {
+        $validator = Validator::make($request->all(),[]);
+        if ($validator->fails()){
             return back()->with('errors', $validator->message()->all()[0])->withInput();
         }
         Alert::toast('Salvo com sucesso!', 'success');
-
         return redirect('/funcionarios/editar/' . $funcionarios->id);
     }
 
@@ -69,7 +70,7 @@ class FuncionariosController extends Controller
         $escolaridade = $this->escolaridade;
         $funcionario = Funcionario::find($id);
 
-        return view('funcionarios.form', compact('funcionario', 'tipo_sexo', 'escolaridade','status'));
+        return view('funcionarios.form', compact('funcionario', 'tipo_sexo', 'escolaridade', 'status'));
     }
 
     public function deletar($id)

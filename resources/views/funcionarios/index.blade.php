@@ -37,18 +37,23 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="col-md" align="center">
+                        <div class="icon-list-demo" style="width: 13rem;">
+                            <img class="card-img-top" src="{{ $item->foto }}">
+                        </div>
+                    </div>
                     <div class="col-md">
                         <div class="form-group">
                             Nome do Funcionário:
-                            <input class="form-control" readonly type="text" value="">
+                            <input class="form-control" readonly type="text" value="{{ $item->nome }}">
                         </div>
                         <div class="form-group">
                             Data de Nascimento:
-                            <input class="form-control" readonly type="text" value="">
+                            <input class="form-control" readonly type="text" value="{{ date( 'd/m/Y' , strtotime($item->data_nasc))}}">
                         </div>
                         <div class="form-group">
-                            Endereço:
-                            <input class="form-control" readonly type="text" value="">
+                            Email:
+                            <input class="form-control" readonly type="text" value="{{ $item->email }}">
                         </div>
                     </div>
 
@@ -105,17 +110,17 @@
                                                 <tr>
                                                     <td align="center">#</td>
                                                     <td align="center">Funcionário</td>
-                                                    <td align="center">Convênio</td>
-                                                    <td align="center">Situação</td>
+                                                    <td align="center">Cargo</td>
+                                                    <td align="center">Escolaridade</td>
                                                     <td align="center">Ações</td>
                                                 </tr>
                                             </thead>
                                             @foreach ($funcionarios as $item)
                                             <tbody>
-                                                <td align="center"></td>
-                                                <td align="center"></td>
-                                                <td align="center"></td>
-                                                <td align="center">}</td>
+                                                <td align="center">{{ $item->id }}</td>
+                                                <td align="center">{{ $item->nome }}</td>
+                                                <td align="center">{{ $item->cargo }}</td>
+                                                <td align="center">{{ $item->escolaridade }}</td>
                                                 <td align="end">
                                                     <a href="/funcionarios/editar/{{ $item->id }}" class="btn btn-info">
                                                         <i class="ti-write"></i>
@@ -137,9 +142,8 @@
                                             </div>
                                             @endforeach
                                         </table>
-                                        @if(count($funcionarios) < 1) 
-                                        <div class="alert alert-info" style="margin-left: 61px; margin-right: 61px;">
-                                        Nenhum registro encontrado!
+                                        @if(count($funcionarios) < 1) <div class="alert alert-info" style="margin-left: 61px; margin-right: 61px;">
+                                            Nenhum registro encontrado!
                                     </div>
                                     @endif
                                 </div>

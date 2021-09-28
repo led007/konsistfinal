@@ -50,12 +50,10 @@
                                 Conselho:
                                 <input class="form-control" readonly type="text" value="{{$item->conselho}}">
                             </div>
-                            Especialidades:
-                            @foreach ($item->especialidades as $item_espec)
-                            <br>
-                            <input class="form-control" readonly type="text" value="{{$item_espec->nome}}">
-                           
-                            @endforeach
+                            <div class="form-group">
+                              Email:
+                                <input class="form-control" readonly type="text" value="{{$item->email}}">
+                            </div>
 
                         </div>
                 </div>

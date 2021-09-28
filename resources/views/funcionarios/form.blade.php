@@ -255,13 +255,13 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label>Responsabilidades:</label>
-                                                                    <textarea style="height: 140px;" class="form-control" name="responsabilidades" id="responsabilidades" rows="3">@if(isset($funcionario)){{$funcionario->responsabilidades}}@else{{ old('responsabilidades')}}@endif</textarea>
+                                                                    <textarea style="height: 140px;" class="form-control" name="responsabilidades" id="responsabilidades">@if(isset($funcionario)){{$funcionario->responsabilidades}}@else{{ old('responsabilidades')}}@endif</textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="card" style="width: 7rem;">
                                                                     @if(isset($funcionario) && $funcionario->foto != '')
-                                                                    <img class="card-img-top" src="{{ $funcionario->foto }}" alt="Imagem de capa do card">
+                                                                    <img class="card-img-top" src="{{ $funcionario->foto }}" alt="foto">
                                                                     <div class="card-body">
                                                                         <p class="card-text">{{$funcionario->nome}}</p>
                                                                     </div>

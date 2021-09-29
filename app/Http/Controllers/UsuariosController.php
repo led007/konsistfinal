@@ -29,7 +29,7 @@ class UsuariosController extends Controller
 
     public function novo()
     {   
-        
+     
         $tipo_funcao = $this->tipo_funcao;
         return view('usuarios.form', compact('tipo_funcao'));
     }

@@ -24,17 +24,17 @@ class FuncionariosRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome',
-            'data_nasc',
-            'status',
-            'idade',
-            'sexo',
-            'escolaridade',
-            'cep',
-            'email',
-            'telefone',
-            'cargo',
-            'data_admiss',            
+            'nome' => 'required',
+            'data_nasc' => 'required',
+            'status' => 'required',
+            'idade' => 'required',
+            'sexo' => 'required',
+            'escolaridade' => 'required',
+            'cep' => 'required',
+            'email' => 'required',
+            'telefone' => 'required',
+            'cargo' => 'required',
+            'data_admiss' => 'required',            
         ];  
     }
     public function messages()
@@ -49,7 +49,8 @@ class FuncionariosRequest extends FormRequest
             'cep.required' => 'O CEP é obrigatório',
             'telefone.required' => 'O telefone é obrigatório',
             'cargo.required' => 'O cargo é obrigatório',
-            'data_admiss.required' => 'A data de admissão é obrigatória',         
+            'data_admiss.required' => 'A data de admissão é obrigatória',
+            'escolaridade.required' => 'A escolaridade é obrigatória',         
         ];
     }
 }

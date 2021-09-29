@@ -85,14 +85,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            
-                                            <div class="col-6">
-                                                <div class="form-group form-default">
-                                                    <label class="float-label">Senha</label>
-                                                    <input type="password" name="password" class="form-control" value="">
-                                                </div>
-                                            </div>
-                                            
+                                           
                                             <div class="col-6">
                                                 <div class="form-group form-default">
                                                     <label class="float-label">Função</label>
@@ -103,6 +96,14 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                            </div>
+                                            <div class="col-6">
+                                                @if(empty($usuario))
+                                                <div class="form-group form-default">
+                                                    <label class="float-label">Senha</label>
+                                                    <input type="password" name="password" class="form-control" value="">
+                                                </div>
+                                                @endif
                                             </div>
                                             <div class="row">
 

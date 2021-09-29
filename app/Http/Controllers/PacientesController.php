@@ -61,11 +61,11 @@ class PacientesController extends Controller
 
     public function editar($id)
     {   
-        
         $civil = $this->civil;
         $tipo_sexo = $this->tipo_sexo;
         $situacao = $this->situacao;
         $convenio = $this->convenio;
+        
         $paciente = Paciente::find($id);
 
         return view('pacientes.form', compact('paciente','tipo_sexo','situacao','civil','convenio'));

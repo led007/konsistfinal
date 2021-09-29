@@ -129,12 +129,6 @@
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <label class="form-label">Data de demissão</label>
-                                                    <input type="date" name="data_demiss" class="form-control" required value="@if(isset($funcionario)){{$funcionario->data_demiss}}@else{{old('data_demiss')}}@endif">
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="form-group">
                                                     <label class="form-label">Status</label>
                                                     <select required name="status" class="form-control" value="@if(isset($funcionario)){{$funcionario->status}}@else{{old('status')}}@endif">
                                                         <option value="">Selecione</option>
@@ -144,6 +138,15 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-4">
+                                            @if(isset($funcionario))
+                                                <div class="form-group">
+                                                    <label class="form-label">Data de demissão</label>
+                                                    <input type="date" name="data_demiss" class="form-control" value="@if(isset($funcionario)){{$funcionario->data_demiss}}@else{{old('data_demiss')}}@endif">
+                                                </div>
+                                                @endif
+                                            </div>
+
                                         </div>
                                         <div class="row">
                                             <div class="col">

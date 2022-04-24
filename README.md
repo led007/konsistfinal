@@ -22,7 +22,6 @@ Além disto serviu bastante para meu aprendizado com o Laravel, espero que goste
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/login_sucees.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/dashboard.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/dashboard1.PNG">
-<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/dashboard1.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/agendamento_form.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/agendamento.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos.PNG">

@@ -1,7 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 ## Sobre o Projeto
 
-Primeira aplicação minha desenvolvida no framework Laravel, onde elaborei um sistema de agendamentos de pacientes. Onde no sistema é possivel cadastrar médicos, pacientes, funcionários e usuários. O sistema conta também com uma dashboard interativa onde é possivel contabilizar todos os registros apresentados na dashboard.
+Primeira aplicação minha desenvolvida no framework Laravel, onde elaborei um sistema de agendamentos de pacientes. Onde no sistema é possivel cadastrar médicos, pacientes, funcionários e usuários. O sistema também apresenta uma dashboard interativa onde é possivel contabilizar todos os registros apresentados na dashboard.
 
 Funcionalidades do sistema
 
@@ -31,11 +31,12 @@ Além disto serviu bastante para meu aprendizado com o Laravel, espero que goste
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/pacientes1.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/modal.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/confirm.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/pacientes_delete.PNG">
 
 
 # Considerações finais
 
-Tenho em mente de que com esse pequeno projeto possa melhorar minhas habildades na programação, me gratificando com mais experiência nesta área na qual gosto muito ❤ .
+Tenho em mente de que com esse pequeno projeto possa melhorar minhas habilidades na programação, me gratificando com mais experiência nesta área na qual gosto muito ❤ .
 
 
 

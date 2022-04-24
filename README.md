@@ -2,7 +2,7 @@
 
 # Sobre o Projeto
 
-Primeira aplicação minha desenvolvida no framework Laravel, onde elaborei um sistema de agendamentos de pacientes. Onde no sistema é possivel cadastrar médicos, pacientes, funcionários e usuários. O sistema também apresenta uma dashboard interativa onde é possivel contabilizar todos os registros apresentados na dashboard.
+Primeira aplicação minha desenvolvida no framework Laravel, onde elaborei um sistema de agendamentos de pacientes. Onde no sistema é possível cadastrar médicos, pacientes, funcionários e usuários. O sistema também apresenta uma dashboard interativa onde é possível contabilizar todos os registros apresentados na dashboard.
 
 Funcionalidades do sistema
 

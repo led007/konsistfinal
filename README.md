@@ -34,11 +34,14 @@ Além disto serviu bastante para meu aprendizado com o Laravel, espero que goste
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/confirm.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/pacientes_delete.PNG">
 
-<video src='https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/projeto.mp4' width=180/>
+
+# Vídeo demonstrativo 
+[![Watch the video](https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/login.PNG)](https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/projeto.mp4)
 
 # Considerações finais
 
 Tenho em mente de que com esse pequeno projeto possa melhorar minhas habilidades na programação, me gratificando com mais experiência nesta área na qual gosto muito ❤ .
+
 
 
 

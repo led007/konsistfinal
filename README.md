@@ -36,7 +36,7 @@ Além disto serviu bastante para meu aprendizado com o Laravel, espero que goste
 
 
 # Vídeo demonstrativo 
-[![Watch the video](https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/login.PNG)](https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/projeto.mp4)
+[![Watch the video](https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/thumb.png)](https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/projeto.mp4)
 
 # Considerações finais
 

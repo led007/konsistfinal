@@ -9,11 +9,12 @@ Funcionalidades do sistema
 - Permissões por usúarios.
 - Dashboard interativa.
 - Simples e funcional.
+- Emissão de reltórios (PDF).
 
 O sistema ainda não esta pronto, foi desenvolvido quando fazia estágio para empresa na qual deram continuidade com o sistema. 
 Além disto serviu bastante para meu aprendizado com o Laravel, espero que gostem 😎 .
 
-## Imagens do Sistema
+# Imagens do Sistema
 
 
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/login.PNG">
@@ -26,12 +27,15 @@ Além disto serviu bastante para meu aprendizado com o Laravel, espero que goste
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/agendamento.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos_form.PNG">
-<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos_form.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos_salvar.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/pacientes.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/pacientes1.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/modal.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/confirm.PNG">
+
+
+
+
 
 
 

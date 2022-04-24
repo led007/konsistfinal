@@ -22,4 +22,5 @@ O sistema ainda não esta pronto, foi desenvolvido apenas para fins de aprendiza
 
 ## Imagens do Sistema
 
-<img src="/insumos/dashboard.png">
+
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/dashboard.PNG">

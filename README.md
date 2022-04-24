@@ -7,11 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Sobre o Projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Primeira aplicação minha desenvolvida no framework Laravel, onde elaborei um sistema de agendamentos de pacientes. Onde no sistema é possivel cadastrar médicos, pacientes, funcionários e usuários. O sistema conta também com uma dashboard interativa onde é possivel contabilizar todos os registros apresentados na dashboard. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Simple, fast routing engine].
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
 - Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).

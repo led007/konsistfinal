@@ -22,4 +22,4 @@ O sistema ainda não esta pronto, foi desenvolvido apenas para fins de aprendiza
 
 ## Imagens do Sistema
 
-<img src="insumos/dashboard.png">
+<img src="/insumos/dashboard.png">

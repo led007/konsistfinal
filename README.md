@@ -34,7 +34,7 @@ Além disto serviu bastante para meu aprendizado com o Laravel, espero que goste
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/confirm.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/pacientes_delete.PNG">
 
-<embed src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/projeto.mp4 " type="video/mp4">
+[![Watch the video](https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/login.PNG)](https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/projeto.mp4)
 
 # Considerações finais
 

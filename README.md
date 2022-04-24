@@ -1,7 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 ## Sobre o Projeto
 
-Primeira aplicação minha desenvolvida no framework Laravel, onde elaborei um sistema de agendamentos de pacientes. Onde no sistema é possivel cadastrar médicos, pacientes, funcionários e usuários. O sistema conta também com uma dashboard interativa onde é possivel contabilizar todos os registros apresentados na dashboard. 
+Primeira aplicação minha desenvolvida no framework Laravel, onde elaborei um sistema de agendamentos de pacientes. Onde no sistema é possivel cadastrar médicos, pacientes, funcionários e usuários. O sistema conta também com uma dashboard interativa onde é possivel contabilizar todos os registros apresentados na dashboard.
 
 Funcionalidades do sistema
 
@@ -10,9 +10,29 @@ Funcionalidades do sistema
 - Dashboard interativa.
 - Simples e funcional.
 
-O sistema ainda não esta pronto, foi desenvolvido apenas para fins de aprendizado :D.
+O sistema ainda não esta pronto, foi desenvolvido quando fazia estágio para empresa na qual deram continuidade com o sistema. 
+Além disto serviu bastante para meu aprendizado com o Laravel, espero que gostem 😎 .
 
 ## Imagens do Sistema
 
 
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/login.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/login_erro.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/login_sucees.PNG">
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/dashboard.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/dashboard1.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/dashboard1.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/agendamento_form.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/agendamento.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos_form.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos_form.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/medicos_salvar.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/pacientes.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/pacientes1.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/modal.PNG">
+<img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/confirm.PNG">
+
+
+
+

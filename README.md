@@ -33,6 +33,16 @@ Além disto serviu bastante para meu aprendizado com o Laravel, espero que goste
 <img src="https://raw.githubusercontent.com/led007/konsistfinal/main/insumos/confirm.PNG">
 
 
+# Considerações finais
+
+Tenho em mente de que com esse pequeno projeto possa melhorar minhas habildades na programação, me gratificando com mais experiência nesta área na qual gosto muito ❤ .
+
+
+
+
+
+
+
 
 
 
